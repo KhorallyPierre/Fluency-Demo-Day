@@ -36,7 +36,7 @@ module.exports = function(app, passport, db) {
   })
 
 
-  
+
 
 
 
@@ -354,15 +354,25 @@ module.exports = function(app, passport, db) {
   //     })
   // })
 
-  // app.delete('/messages', (req, res) => {
-  //   db.collection('messages').findOneAndDelete({
-  //     name: req.body.name,
-  //     msg: req.body.msg
-  //   }, (err, result) => {
+  // app.delete('/profile', (req, res) => {
+  //   console.log(req.user)
+  //   db.collection('userProfile').findOneAndDelete({
+  //     language: req.body.language,
+  //
+  //   }, 
+  //
+  //   } , (err, result) => {
   //     if (err) return res.send(500, err)
-  //     res.send('Message deleted!')
+  //     res.send('language deleted!')
   //   })
   // })
+
+  app.delete('/profile', (req, res) => {
+    db.collection('userProfile').findOneAndDelete({ language: req.body.language}, (err, result) => {
+      if (err) return res.send(500, err)
+      res.send('Message deleted!')
+    })
+  })
 
   // =================================== PAIRING PPL TO VIDEO CHAT
 

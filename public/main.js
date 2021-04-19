@@ -1,7 +1,6 @@
-// var thumbUp = document.getElementsByClassName("fa-thumbs-up");
-// var thumbDown = document.getElementsByClassName("fa-thumbs-down");
 var trash = document.getElementsByClassName("fa-trash");
-let language = document.getElementsByClassName("language");
+var chat = document.getElementsByClassName('connectToChat');
+
 
 
 //
@@ -57,17 +56,18 @@ let language = document.getElementsByClassName("language");
 // });
 
 Array.from(trash).forEach(function(element) {
+
   element.addEventListener('click', function() {
-    const name = this.parentNode.parentNode.childNodes[1].innerText
-    const msg = this.parentNode.parentNode.childNodes[3].innerText
-    fetch('messages', {
+    console.log('event is working')
+    const language = this.parentNode.parentNode.getElementById('nameOfLang').innerText
+    fetch('profile', {
       method: 'delete',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        'name': name,
-        'msg': msg
+        'language': language
+
       })
     }).then(function(response) {
       window.location.reload()
@@ -76,7 +76,7 @@ Array.from(trash).forEach(function(element) {
 });
 
 
-var chat = document.getElementsByClassName('connectToChat');
+
 
 console.log(chat)
 Array.from(chat).forEach(function(element) {

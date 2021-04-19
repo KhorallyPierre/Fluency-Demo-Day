@@ -43,6 +43,8 @@ footer, header, hgroup, menu, nav, section {
   position: absolute;
   left: 33%;
   top: 22%;
+  font-size: 20px;
+  font-weight: bolder;
 }
 
 .assessment {
@@ -66,7 +68,7 @@ footer, header, hgroup, menu, nav, section {
   background-image: url('images/typing.gif');
   height: 700px;
   float: left;
-  margin-left: 117px;
+  margin-left: 51px;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -74,8 +76,9 @@ footer, header, hgroup, menu, nav, section {
 .assessment2 {
   width: 40%;
   margin-left: 39px;
-  color: rgb(198, 77, 100);
+  color: lavender;
   height: 630px;
+  font-weight: bolder;
   overflow: scroll;
   background-color: rgba(51, 71, 24, 0.5);
   border-radius: 10%;
@@ -155,8 +158,12 @@ body {
   color: rgb(198, 77, 100);
   text-align: center;
   height: 100px;
-  font-size: 24px;
+  font-size: 27px;
   overflow: visible;
+  position: absolute;
+  left: 44.5%;
+  top: 16%;
+  font-weight: bolder;
 }
 
 ol, ul {
@@ -424,11 +431,15 @@ pre code {
   text-align: right;
 }
 
+ul {
+  list-style: none !important;
+}
+
 .love {
-  width: 30%;
+  width: 14%;
   border-radius: 30%;
   margin-top: 10px;
-  background-color: rgba(2, 2, 2, .5);
+  background-color: rgba(2, 2, 2);
 }
 
 .fluency {
@@ -3414,7 +3425,7 @@ body.is-touch .spotlight {
 
 /* Wrapper */
 .wrapper {
-  padding: 0 0 4em 0;
+  padding: 60px 0 4em 0;
 }
 
 .wrapper.style2 {
