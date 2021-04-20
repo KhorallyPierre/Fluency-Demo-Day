@@ -3,11 +3,7 @@ const videoGrid = document.getElementById('video-grid')
 // const myPeer = new Peer(undefined, {})
 
 //Every Peer object is assigned a random, unique ID when it's created.
-const myPeer = new Peer(undefined, {
-  // youtubber cant use his own data for host, we commented it out
-  host: '/',
-  port: '3001'
-})
+const myPeer = new Peer(undefined, {})
 const myVideo = document.createElement('video')
 myVideo.muted = true
 // object being used to organize stuff in one place - referred to as a namespace

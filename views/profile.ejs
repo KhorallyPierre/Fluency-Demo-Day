@@ -62,18 +62,19 @@
 							<% for(var i=0; i< user.length; i++) {%>
 							<li class="message">
 								<span><%= picture[i].name %></span>
-								<img src="<%= picture[i].img %>" alt="profile picture">
+
 
 								<span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
 							</li>
 							<% } %>
 						</ul>
 						<% if (user.local.email) { %>
-						<form action="/images" method="POST" enctype='multipart/form-data'>
+						<form action="/profile" method="POST" enctype='multipart/form-data'>
 							<h3 type="text" value="" name="name"> <%= user.local.username %> </h3>
 							<span>change profile picture</span>
+							<img src="<%= userProfiles.img %>" alt="profile picture">
 							<input type="file" placeholder="" name="file">
-							<img src="" alt="">
+
 							<button class="addPic" type="submit" value="Upload"> Add </button>
 						</form>
 					</section>

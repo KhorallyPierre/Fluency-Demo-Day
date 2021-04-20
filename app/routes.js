@@ -105,25 +105,38 @@ module.exports = function(app, passport, db) {
   //     Create (POST) - Make match between users
   // url to access this information localhost:1000/pair/Spanish
   // create
-  // app.post('/userProfile', isLoggedIn, function(req, res) {
-  //   const profileObject = {
-  //     email: req.body.email,
-  //     userName: req.body.userName,
-  //     proficiency: req.body.proficiency,
-  //     language: req.body.language,
-  //     learning: req.body.learning,
-  //     images: req.body.image
-  //   }
-  //   db.collection('userProfile').insertOne(profileObject, (err, result) => {
-  //     if (err) {
-  //       res.redirect('request failed, try again')
-  //     } else {
-  //       res.redirect('profile.html')
-  //     }
-  //   })
-  // });
+  app.post('/profile', isLoggedIn, function(req, res) {
+    if (req.files) {
+      console.log(req.files)
+      var file = req.files.file
+      var fileName = file.name
+      console.log(fileName)
 
-  //
+      file.mv('public/uploads/' + fileName, function(err) {
+        if (err) {
+          res.send(err)
+        } else {
+          res.redirect('/profile')
+        }
+      })
+      const profileObject = {
+        email: req.body.email,
+        userName: req.body.userName,
+        proficiency: req.body.proficiency,
+        language: req.body.language,
+        learning: req.body.learning,
+        // img: "/uploads/" + fileName
+      }
+      db.collection('userProfile').findOneAndUpdate({
+        user: req.user.local.email
+      }, {
+        $set: {
+          img: "/uploads/" + fileName
+
+        }
+      });
+    }
+  })
   // who speaks desired langugage gets chosen /read
   // get is reading
   app.get('/pair/:language', /*isLoggedIn,*/ function(req, res) {
@@ -177,19 +190,25 @@ module.exports = function(app, passport, db) {
   // displaying people in need of specific services (ends by rendering the profile)
   //express knows to run servicesNeeded middleware -
   app.get('/profile', isLoggedIn, servicesNeeded, function(req, res) {
-    db.collection('requests').find({
-        fromUser: req.user.local.email
+    console.log(req.user)
+    db.collection('userProfile').find({
+        email: req.user.local.email
       }
 
-    ).toArray((err, myRequests) => {
-      res.render('profile.ejs', {
-        user: req.user,
-        userProfile: req.userProfile,
-        requests: req.requests,
-        found: req.found,
-        myRequests: myRequests,
-        // if req.found is a value services will be true, if null, false
-        areServicesNeeded: Boolean(req.found)
+    ).toArray((err, profile) => {
+      db.collection('requests').find({
+        fromUser: req.user.local.email
+      }).toArray((error, myRequests) => {
+        res.render('profile.ejs', {
+          user: req.user,
+          userProfile: req.userProfile,
+          userProfiles: profile,
+          requests: req.requests,
+          found: req.found,
+          myRequests: myRequests,
+          // if req.found is a value services will be true, if null, false
+          areServicesNeeded: Boolean(req.found)
+        })
       })
     })
   })
@@ -233,31 +252,7 @@ module.exports = function(app, passport, db) {
   //     });
   //   })
 
-  // upload profile picture ===========
-  // app.post('/images', upload.single('file-to-upload'), (req, res) => {
-  //   if (req.files) {
-  //     console.log(req.files)
-  //     var file = req.files.file
-  //     var fileName = file.name
-  //     console.log(fileName)
-  //
-  //     file.mv('public/uploads/' + fileName, function(err) {
-  //       if (err) {
-  //         res.send(err)
-  //       } else {
-  //         res.redirect('/profile')
-  //       }
-  //     })
-  //     db.collection('images').save({
-  //       name: req.body.name,
-  //       img: "/uploads/" + fileName
-  //     }, (err, result) => {
-  //       if (err) return console.log(err)
-  //       console.log('saved to database')
-  //
-  //     })
-  //   }
-  // })
+
 
 
 
@@ -367,7 +362,9 @@ module.exports = function(app, passport, db) {
   // })
 
   app.delete('/profile', (req, res) => {
-    db.collection('userProfile').findOneAndDelete({ language: req.body.language}, (err, result) => {
+    db.collection('userProfile').findOneAndDelete({
+      language: req.body.language
+    }, (err, result) => {
       if (err) return res.send(500, err)
       res.send('Message deleted!')
     })
