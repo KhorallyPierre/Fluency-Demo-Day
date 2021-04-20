@@ -23,9 +23,23 @@ HTML, CSS, JavaScript, and MongoDB. More specifically, I used MongoDB to store t
 
 4/10 - implemented imbedded JS in my profile.ejs page to build out conditionals pertaining to chatting options
 
-4/14 - Added some cool css styling to my sign-up page 
+4/14 - Added some cool css styling to my sign-up page
 Nothing in tech is daunting as long as you make it fun! I love learning new languages (fun fact: I speak three languages, one of which I learned studying abroad) so using this theme has really made me feel like I'm actually making a difference in the lives of those around me that are passionate about language learning like I am.
 
+4/15 - Tried to implement video chatting using peerJS, had a few bugs
+
+4/17 - Fixed a few bugs
+
+
+4/18 - working to get upload profile pic and trash can to worked
+
+
+4/19 - Implemennted "End Chat" feature along with suggested topics
+
+4/20 - Added CSS to video chatting room
+
+
+4/22 - Deleted dulicate buttonn on profile page
 # My Other Projects
 Take a look at these couple examples that I have in my own portfolio:
 
