@@ -21,6 +21,7 @@ var configDB = require('./config/database.js');
 var db
 //video chatting variables
 const server = require('http').Server(app)
+const peerServer = ExpressPeerServer(server,{debug: true, path: '/Fluency-Demo-Day-2.0'})
 const io = require('socket.io')(server)
 const {  v4: uuidV4} = require('uuid')
 
@@ -84,5 +85,6 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 // launch ======================================================================
 // app.listen(port);
+app.use('/peerjs', peerServer)
 server.listen(port)
 console.log('The magic happens on port ' + port);
