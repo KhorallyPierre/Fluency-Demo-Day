@@ -234,32 +234,31 @@ module.exports = function(app, passport, db) {
   //   })
 
   // upload profile picture ===========
-  app.post('/picture', (req, res) => {
-    if (req.files) {
-      console.log(req.files)
-      var file = req.files.file
-      var fileName = decodeURIComponent(file.name)
-      console.log(fileName)
+  // app.post('/images', upload.single('file-to-upload'), (req, res) => {
+  //   if (req.files) {
+  //     console.log(req.files)
+  //     var file = req.files.file
+  //     var fileName = file.name
+  //     console.log(fileName)
+  //
+  //     file.mv('public/uploads/' + fileName, function(err) {
+  //       if (err) {
+  //         res.send(err)
+  //       } else {
+  //         res.redirect('/profile')
+  //       }
+  //     })
+  //     db.collection('images').save({
+  //       name: req.body.name,
+  //       img: "/uploads/" + fileName
+  //     }, (err, result) => {
+  //       if (err) return console.log(err)
+  //       console.log('saved to database')
+  //
+  //     })
+  //   }
+  // })
 
-      file.mv('uploads/' + fileName, function(err) {
-        if (err) {
-          res.send(err)
-        } else {
-
-          res.redirect('/profile')
-        }
-      })
-      db.collection('userProfile').save({
-        name: req.body.name,
-        img: "/uploads/" + fileName
-      }, (err, result) => {
-        if (err) return console.log(err)
-        console.log('saved to database')
-
-      })
-    }
-
-  })
 
 
 
@@ -359,7 +358,7 @@ module.exports = function(app, passport, db) {
   //   db.collection('userProfile').findOneAndDelete({
   //     language: req.body.language,
   //
-  //   }, 
+  //   },
   //
   //   } , (err, result) => {
   //     if (err) return res.send(500, err)
