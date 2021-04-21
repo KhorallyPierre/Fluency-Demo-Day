@@ -54,26 +54,26 @@ var chat = document.getElementsByClassName('connectToChat');
 //       })
 //   });
 // });
-
-Array.from(trash).forEach(function(element) {
-
-  element.addEventListener('click', function() {
-    console.log('event is working')
-    const language = this.parentNode.parentNode.getElementById('nameOfLang').innerText
-    fetch('profile', {
-      method: 'delete',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        'language': language
-
-      })
-    }).then(function(response) {
-      window.location.reload()
-    })
-  });
-});
+// deleted langauges on routes instead of here
+// Array.from(trash).forEach(function(element) {
+//
+//   element.addEventListener('click', function() {
+//     console.log('event is working')
+//     const language = this.parentNode.parentNode.getElementById('nameOfLang').innerText
+//     fetch('profile', {
+//       method: 'delete',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({
+//         'language': language
+//
+//       })
+//     }).then(function(response) {
+//       window.location.reload()
+//     })
+//   });
+// });
 
 
 

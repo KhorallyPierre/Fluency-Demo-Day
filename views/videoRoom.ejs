@@ -14,18 +14,45 @@
   <style>
     #video-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, 300px);
-      grid-auto-rows: 300px;
+      grid-template-columns: repeat(auto-fill, 500px);
+      grid-auto-rows: 500px;
     }
 
     video {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+  height: 100%;
+  object-fit: cover;
+  padding: 46px;
+  padding-left: 56px;
+}
+
+  .videoBox, .topics  {
+    float: left;
+  }
+    body {
+      background-image: url('images/background.jpg');
     }
   </style>
 </head>
 <body>
-  <div id="video-grid"></div>
+  <section class="videoBox">
+    <div id="video-grid"></div>
+    <button class="button primary" type="button" name="button"> <a href="http://localhost:8000/videoChat/607f2cbeba0d65001554fc0b?button=">Begin Session</a> </button>
+    <button class="button primary" type="button" name="button"> <a href="/profile">End Session</a> </button>
+  </section>
+
+  <section class="topics">
+    <h3> Suggested Topics:</h3>
+    <ul>
+      <li> Describe your last vacation</li>
+      <li> Describe your best friend</li>
+      <li> Why do you wish to learn this language?</li>
+      <li> If you could change the past what would you change?</li>
+      <li> Who is your favorite music artist? Why?</li>
+      <li> What is your happiest memory? </li>
+    </ul>
+    <li></li>
+  </section>
 </body>
+
 </html>

@@ -30,10 +30,6 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-.half {
-  width: 30%;
-  float: left;
-}
 
 .containerLanguage2 {
   width: 33%;
@@ -88,13 +84,27 @@ footer, header, hgroup, menu, nav, section {
 .half {
   width: 30%;
   float: left;
-  margin-left: -48px;
+  margin-left: -39px;
   color: rgb(198, 77, 100);
   height: 700px;
+  margin-top: -79px;
 }
 
 .submit {
   text-align: center;
+  position:
+}
+
+#cute {
+  background-color: #40b5b3;
+box-shadow: none;
+color: #040404 !important;
+color: black;
+font-weight: 900;
+position: absolute;
+top: 45%;
+left: 70%;
+font-size: 20px;
 }
 
 .addToProfile {
@@ -283,6 +293,17 @@ body, input, select, textarea {
   font-family: "Roboto", Helvetica, sans-serif;
   padding: 10px;
   font-size: 15px;
+  width: 380px;
+}
+
+.width, option {
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.ur, .ur2 {
+  font-weight: 1000;
+  font-size: 20px;
 }
 
 .books {
@@ -2395,17 +2416,29 @@ header.major {
   text-align: center;
 }
 
+.nameOf {
+  padding: 0px;
+    font-size: 30px;
+    margin-bottom: 13px;
+}
+
 .profilePic {
-  height: 210px;
-  width: 210px;
+  height: 301px;
+  width: 298px;
   background-repeat: no-repeat;
-  border-radius: 50%;
+  border-radius: 23%;
   overflow: hidden;
 }
 
 .pictureProfile {
   width: 100%;
   height: 100%;
+  background-image: url('images/picture.jpg');
+  background-size:cover;
+}
+
+.profilePic2 {
+  width: 300px;
 }
 
 header.major:after {
@@ -2440,6 +2473,7 @@ float: left;
 margin-left: 61px;
 color: rgb(198, 77, 100);
 height: 700px;
+background-color: black;
 }
 
 form.cta {

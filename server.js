@@ -3,6 +3,7 @@
 // set up ======================================================================
 // get all the tools we need
 var express = require('express');
+const upload = require('express-fileupload')
 var app = express();
 var port = process.env.PORT || 8000;
 const MongoClient = require('mongodb').MongoClient
@@ -41,6 +42,8 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(express.static('public'))
+
+app.use(upload())
 //videochatting code
 app.set('view engine', 'ejs'); // set up ejs for templating
 // how to connect routes without breaking

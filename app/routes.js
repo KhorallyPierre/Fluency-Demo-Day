@@ -36,8 +36,40 @@ module.exports = function(app, passport, db) {
   })
 
 
+  app.get('/deleteLang/:language', isLoggedIn, function(req, res) {
+    console.log('about to delete language', req.params.language)
+    db.collection('userProfile').updateOne({
+        userId: req.user._id
+      }, {
+        $pull: {
+          'languages': {
+            language: req.params.language
+          }
+        }
+      },
+      (err, result) => {
+        if (err) {
+          console.log("deleteLang", err)
+          res.redirect('/profile')
+        } else {
+          console.log('about to delete request', req.user.local.email, req.params.language)
+          db.collection('requests').deleteMany({
+              fromUser: req.user.local.email,
+              language: req.params.language
+            },
+            (err, result) => {
+              if (err) {
+                console.log("deleteLang", err)
+                res.redirect('/profile')
+              } else {
+                res.redirect('/profile')
+              }
 
-
+            }
+          )
+        }
+      });
+  })
 
 
 
@@ -51,7 +83,7 @@ module.exports = function(app, passport, db) {
       if (err) return console.log(err)
       let languages = userProfile.languages.filter(element => element.teachOrLearn ==
         "teach").map(element => element.language)
-      console.log('languages I teach', languages)
+      // console.log('languages I teach', languages)
       if (!languages) {
         languages = []
       }
@@ -71,7 +103,7 @@ module.exports = function(app, passport, db) {
           $ne: userProfile.email
         }
       }).toArray((err, requests) => {
-        console.log('chat requests', requests)
+        // console.log('chat requests', requests)
         let found = null
         if (!requests) {
           requests = []
@@ -89,7 +121,7 @@ module.exports = function(app, passport, db) {
         req.userProfile = userProfile
         req.requests = requests
         req.found = found
-        console.log('we found a teacher', found)
+        // console.log('we found a teacher', found)
         next()
       })
     });
@@ -107,34 +139,42 @@ module.exports = function(app, passport, db) {
   // create
   app.post('/profile', isLoggedIn, function(req, res) {
     if (req.files) {
-      console.log(req.files)
+      console.log('uploading pic', req.files)
       var file = req.files.file
-      var fileName = file.name
-      console.log(fileName)
+      var fileName = decodeURIComponent(file.name)
+      console.log('name of file', fileName)
 
       file.mv('public/uploads/' + fileName, function(err) {
         if (err) {
           res.send(err)
+
         } else {
-          res.redirect('/profile')
+          db.collection('userProfile').findOneAndUpdate({
+            email: req.user.local.email
+          }, {
+            $set: {
+              img: "/uploads/" + fileName
+
+            }
+          }, (err, result) => {
+            if (err) {
+              console.log("upload picture", err)
+              res.send(err)
+            } else {
+              res.redirect('/profile')
+            }
+          });
         }
       })
-      const profileObject = {
-        email: req.body.email,
-        userName: req.body.userName,
-        proficiency: req.body.proficiency,
-        language: req.body.language,
-        learning: req.body.learning,
-        // img: "/uploads/" + fileName
-      }
-      db.collection('userProfile').findOneAndUpdate({
-        user: req.user.local.email
-      }, {
-        $set: {
-          img: "/uploads/" + fileName
+      // const profileObject = {
+      //   email: req.body.email,
+      //   userName: req.body.userName,
+      //   proficiency: req.body.proficiency,
+      //   language: req.body.language,
+      //   learning: req.body.learning,
+      //   img: "/uploads/" + fileName
+      // }
 
-        }
-      });
     }
   })
   // who speaks desired langugage gets chosen /read
@@ -159,7 +199,7 @@ module.exports = function(app, passport, db) {
 
   // THIS PUTS LANGUAGE ON USER PROFILE
   app.post('/addLanguage', isLoggedIn, function(req, res) {
-    console.log('addLanguage', req.body)
+    // console.log('addLanguage', req.body)
     const fluency = parseInt(req.body.country) + parseInt(req.body.teach) + parseInt(req.body.help)
     const languageObject = {
       language: req.body.language,

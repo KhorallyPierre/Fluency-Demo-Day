@@ -52,37 +52,41 @@
 
 			<div class="container containerWelcome">
 				<section class="half">
+<form action="/profile" method="POST" enctype='multipart/form-data'>
+	<h3 class="nameOf" type="text" value="" name="name"> Hello, <%= user.local.username %> </h3>
 
 					<div class="profilePic">
-						<img class="pictureProfile" src="images/picture.jpg" alt="profile picture">
+
+
+							<img class= "profilePic2" src="<%= userProfile.img %>" alt="profile picture">
+
+
+
+
 					</div>
+						<span>change profile picture</span>
+						<input type="file" placeholder="" name="file">
+						<button class="addPic" type="submit" value="Upload"> Add </button>
+						</form>
 					<section>
 
 						<ul class="message">
 							<% for(var i=0; i< user.length; i++) {%>
 							<li class="message">
 								<span><%= picture[i].name %></span>
-
-
 								<span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
 							</li>
 							<% } %>
 						</ul>
-						<% if (user.local.email) { %>
-						<form action="/profile" method="POST" enctype='multipart/form-data'>
-							<h3 type="text" value="" name="name"> <%= user.local.username %> </h3>
-							<span>change profile picture</span>
-							<img src="<%= userProfiles.img %>" alt="profile picture">
-							<input type="file" placeholder="" name="file">
 
-							<button class="addPic" type="submit" value="Upload"> Add </button>
-						</form>
+
 					</section>
 					<div class="profileQuote">
 
 					</div>
 				</section>
 			</div>
+
 			<div class="container ">
 				<section class="containerLanguage">
 					<h3 class="myLang2">My Languages</h3>
@@ -90,16 +94,18 @@
 
 
 						<ul>
+							<!-- languages -->
+
 							<% for(var i=0; i<userProfile.languages.length; i++) {%>
 
 							<li class="message majors">
 								<ul>
 
-									<li><span id ="nameOfLang"class="stats"><%= userProfile.languages[i].language %></span></li>
+									<li><span id="nameOfLang" class="stats"><%= userProfile.languages[i].language %></span></li>
 									<li><span class="stats">Teach or Learn: <%= userProfile.languages[i].teachOrLearn %></span></li>
 
 									<li> <span class="stats">Fluency: <%= userProfile.languages[i].fluency %> /30</span> </li>
-									<li><span><i class="fa fa-trash" aria-hidden="true"></i></span> </li>
+									<li><span><a href="/deleteLang/<%= userProfile.languages[i].language %>"><i class="fa fa-trash" aria-hidden="true"></i></a></span> </li>
 
 									<% if (found && userProfile.languages[i].language === found.language && userProfile.languages[i].teachOrLearn === "teach" ){ %>
 									<li>
@@ -119,8 +125,7 @@
 											<button id="<%= userProfile.languages[i].language %>" class="connectToChat" type="submit" name="button"> Wait for Teacher to practice <span> <%= userProfile.languages[i].language %></span> </button>
 										</form>
 									</li>
-									<%	}%>
-
+									<%	} else { %>
 									<li>
 										<form class="searchChat">
 											<button id="<%= userProfile.languages[i].language %>" class="connectToChat" type="submit" name="button"> Request to chat in <span> <%= userProfile.languages[i].language %></span> </button>
@@ -131,16 +136,16 @@
 							</li>
 							<% } %>
 
-								</ul>
+								</ul> <!-- languages -->
+								<% } %>
 					</section>
-					<% } %>
 				</section>
 
 			</div>
 			<section class="addLanguage2">
 				<button class="addTo button primary" type="button" name="button"> <a class="addTo" href="/assessment"> Add Language to Profile</a>
 				</button>
-<!--
+				<!--
 				<div class="books">
 					<img src="images/add.png" alt="">
 				</div> -->
