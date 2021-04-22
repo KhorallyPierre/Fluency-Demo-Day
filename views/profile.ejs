@@ -52,22 +52,22 @@
 
 			<div class="container containerWelcome">
 				<section class="half">
-<form action="/profile" method="POST" enctype='multipart/form-data'>
-	<h3 class="nameOf" type="text" value="" name="name"> Hello, <%= user.local.username %> </h3>
+					<form action="/profile" method="POST" enctype='multipart/form-data'>
+						<h3 class="nameOf" type="text" value="" name="name"> Hello, <%= user.local.username %> </h3>
 
-					<div class="profilePic">
-
-
-							<img class= "profilePic2" src="<%= userProfile.img %>" alt="profile picture">
+						<div class="profilePic">
 
 
+							<img class="profilePic2" src="<%= userProfile.img %>" alt="profile picture">
 
 
-					</div>
+
+
+						</div>
 						<span>change profile picture</span>
 						<input type="file" placeholder="" name="file">
 						<button class="addPic" type="submit" value="Upload"> Add </button>
-						</form>
+					</form>
 					<section>
 
 						<ul class="message">
@@ -107,14 +107,16 @@
 									<li> <span class="stats">Fluency: <%= userProfile.languages[i].fluency %> /30</span> </li>
 									<li><span><a href="/deleteLang/<%= userProfile.languages[i].language %>"><i class="fa fa-trash" aria-hidden="true"></i></a></span> </li>
 
-									<% if (found && userProfile.languages[i].language === found.language && userProfile.languages[i].teachOrLearn === "teach" ){ %>
+									<% if (found && userProfile.languages[i].language === found.language && userProfile.languages[i].teachOrLearn === "teach" && userProfile.languages[i].fluency >= 5){ %>
 									<li>
+
 										<form class="startChat" action="/videoChat/<%=found._id%>" method="get">
 											<button id="<%= userProfile.languages[i].language %>" class="connectToChat" type="submit" name="button"> Connect with <span> <%= found.fromUser %> </span> to practice <span> <%= userProfile.languages[i].language %></span>
 											</button>
 										</form>
 									</li>
-
+									<%} else if (userProfile.languages[i].fluency < 5 && userProfile.languages[i].teachOrLearn === "teach") {%>
+											<h3> Fluency level not high enough to teach</h3>
 									<%} else if (userProfile.languages[i].teachOrLearn === "learn"){
 
 									let myRequest = myRequests.find(request => request.language === userProfile.languages[i].language && request.fromUser === userProfile.email && request.status === 'waiting' )

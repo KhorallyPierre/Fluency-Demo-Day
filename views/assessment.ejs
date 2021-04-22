@@ -25,7 +25,6 @@
 		<%	} %>
 		<nav id="nav">
 			<ul>
-				<li><a href="/">Home</a></li>
 				<li><a href="/left-sidebar"> About Fluency</a></li>
 				<li><a href="/right-sidebar"> What to Expect</a></li>
 				<li><a href="/profile" class="button primary">My Profile </a></li>
@@ -37,15 +36,12 @@
 	<h2 class="assessment"> Language Assessment </h2>
 	<!-- when user chooses a language, questions show up in that language
 	profile gets rendered in that languages -->
-	<div class="twoSidesLeft">
 
-	</div>
 	<section class="major half3 assessment2">
 		<!-- prevent user from signing up for language already in profile  -->
-
 		<form class="boldMe" action="/addLanguage" method="post">
+			<label class="changeTo" for="toilet-select"> Select the language you'd like to work with </label>
 			<select class="width widthSelect" name="language">
-				<option>---SELECT LANGUAGE---</option>
 				<option>English</option>
 				<option>French</option>
 				<option>Spanish</option>
@@ -54,13 +50,13 @@
 
 				</optgroup>
 			</select>
-
-			<select class="width" name="teachOrLearn">
-				<option value="teach"> --- WOULD YOU LIKE TO TEACH OR LEARN? ---</option>
-				<option value="teach"> Teach </option>
-				<option value="learn"> Learn</option>
-
-			</select>
+			<section>
+				<label class="changeTo" for="toilet-select"> Would you like to teach or learn this language? </label>
+				<select class="width" name="teachOrLearn">
+					<option value="teach"> Teach </option>
+					<option value="learn"> Learn</option>
+				</select>
+			</section>
 
 			<!-- <h3> Fluency Assesment </h3> -->
 			<section class="width">
@@ -153,20 +149,22 @@
 
 	</section>
 	<div class="twoSidesRight">
+<!-- // update mongo for languages thatonly get updated -->
+<h1>Languages already on profile</h1>
 
 	</div>
 
 
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/jquery.dropotron.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-		<script src="main.js"></script>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="main.js"></script>
 
 </body>
 

@@ -44,21 +44,20 @@ footer, header, hgroup, menu, nav, section {
 }
 
 .assessment {
-  color: rgb(198, 77, 100);
-  text-align: center;
+  color: rgb(218 89 89);
   margin-top: 20px;
+  margin-left: 74px;
 }
-
 .twoSidesRight {
   width: 400px;
-  background-image: url('images/yess.png');
+  background-image: url('images/typing.gif');
   height: 700px;
   float: left;
   margin-left: 61px;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+/*
 .twoSidesLeft {
   width: 430px;
   background-image: url('images/typing.gif');
@@ -67,7 +66,7 @@ footer, header, hgroup, menu, nav, section {
   margin-left: 51px;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 .assessment2 {
   width: 40%;
@@ -77,7 +76,7 @@ footer, header, hgroup, menu, nav, section {
   font-weight: bolder;
   overflow: scroll;
   background-color: rgba(51, 71, 24, 0.5);
-  border-radius: 10%;
+  border-radius: 3%;
   order: 1px solid rgba(198, 77, 100, 0.5);
 }
 
@@ -124,9 +123,10 @@ font-size: 20px;
 }
 
 .changeTo {
-  color: rgb(130, 195, 178);
-  border-color: rgb(130, 195, 178);
-  font-weight: bolder;
+    color: rgb(107 247 200);
+    border-color: rgb(130, 195, 178);
+    font-weight: bolder;
+    font-size: 23px;
 }
 
 /* .page-wrapper {
@@ -2468,7 +2468,7 @@ form {
 }
 
 .half3 {
-  width: 30%;
+  width: 59%;
 float: left;
 margin-left: 61px;
 color: rgb(198, 77, 100);
