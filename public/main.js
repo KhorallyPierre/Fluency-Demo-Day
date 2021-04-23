@@ -1,4 +1,4 @@
-var trash = document.getElementsByClassName("fa-trash");
+// var trash = document.getElementsByClassName("fa-trash");
 var chat = document.getElementsByClassName('connectToChat');
 
 

@@ -1,5 +1,5 @@
 module.exports = function(app, passport, db) {
-const ObjectID = require('mongodb').ObjectID;
+  const ObjectID = require('mongodb').ObjectID;
   // video chatroom
   app.get('/videoChat/:room', (req, res) => {
     console.log('videochat', req.params.room)
@@ -17,7 +17,7 @@ const ObjectID = require('mongodb').ObjectID;
       areServicesNeeded: Boolean(req.found)
     })
   })
-// query for userprofile languages to show up on assessment page
+  // query for userprofile languages to show up on assessment page
 
 
   // assessment Page gets rendered
@@ -197,24 +197,27 @@ const ObjectID = require('mongodb').ObjectID;
       res.send(result[randomPair])
     })
   });
-// end session path
-app.get('/endVideoChat/:roomId', isLoggedIn, function(req, res){
-  // delete request
-  db.collection('requests').findOneAndUpdate({
-    // app.get needs to have the same data type as findone and Update filter
-    _id: ObjectID(req.params.roomId),
-    // if this doesnt work, convert string to object ID
-  },
-  { $set: {status: "complete"}},
-  (err, result) => {
-    if (err) {
-      console.log("end video chat", err)
-      res.send(err)
-    } else {
-      res.redirect('/profile')
-    }
+  // end session path
+  app.get('/endVideoChat/:roomId', isLoggedIn, function(req, res) {
+    // delete request
+    db.collection('requests').findOneAndUpdate({
+        // app.get needs to have the same data type as findone and Update filter
+        _id: ObjectID(req.params.roomId),
+        // if this doesnt work, convert string to object ID
+      }, {
+        $set: {
+          status: "complete"
+        }
+      },
+      (err, result) => {
+        if (err) {
+          console.log("end video chat", err)
+          res.send(err)
+        } else {
+          res.redirect('/profile')
+        }
+      })
   })
-})
 
   // THIS PUTS LANGUAGE ON USER PROFILE
   app.post('/addLanguage', isLoggedIn, function(req, res) {
@@ -233,17 +236,34 @@ app.get('/endVideoChat/:roomId', isLoggedIn, function(req, res){
       },
       //update
       {
-        $push: {
-          "languages": languageObject
+        $pull: {
+          "languages": {
+            language: req.body.language
+          }
         }
       }, (err, result) => {
-        if (err) {
-          console.log("addLanguage", err)
-          res.redirect('/profile')
-        } else {
-          res.redirect('/profile')
-        }
+        db.collection('userProfile').findOneAndUpdate(
+          //filter
+          {
+            email: req.user.local.email
+          },
+          //update
+          {
+            $push: {
+              "languages": languageObject
+            }
+          }, (err, result) => {
+
+            if (err) {
+              console.log("addLanguage", err)
+              res.redirect('/profile')
+            } else {
+              res.redirect('/profile')
+            }
+          })
+
       })
+
   });
 
   // displaying people in need of specific services (ends by rendering the profile)

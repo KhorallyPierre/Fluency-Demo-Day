@@ -34,20 +34,23 @@
 		</nav>
 	</header>
 	<h2 class="assessment"> Language Assessment </h2>
+
 	<!-- when user chooses a language, questions show up in that language
 	profile gets rendered in that languages -->
 
 	<section class="major half3 assessment2">
 		<!-- prevent user from signing up for language already in profile  -->
-		<form class="boldMe" action="/addLanguage" method="post">
+		<form id="englishForm" class="languageForm boldMe" action="/addLanguage" method="post">
 			<label class="changeTo" for="toilet-select"> Select the language you'd like to work with </label>
 			<select class="width widthSelect" name="language">
-				<option>English</option>
+				<option> English </option>
 				<option>French</option>
 				<option>Spanish</option>
 				<option> Haitian Creole </option>
 				<option>Portuguese</option>
-
+<!-- add event listener on button so that langauge chosen hides English assessmnet (becasue that's the default) and shows
+new assessment for that langauge -->
+<!-- hide based on class, unhide based on ID -->
 				</optgroup>
 			</select>
 			<section>
@@ -144,13 +147,15 @@
 			</section>
 			<section class="submit">
 				<button type="submit" id="cute" class="button primary"> Add Language to Profile</button>
+				<h1>Languages already on profile</h1>
 			</section>
 		</form>
 
 	</section>
 	<div class="twoSidesRight">
 <!-- // update mongo for languages thatonly get updated -->
-<h1>Languages already on profile</h1>
+
+
 
 	</div>
 
