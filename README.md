@@ -34,12 +34,14 @@ Nothing in tech is daunting as long as you make it fun! I love learning new lang
 4/18 - working to get upload profile pic and trash can to worked
 
 
-4/19 - Implemennted "End Chat" feature along with suggested topics
+4/19 - Implemented "End Chat" feature along with suggested topics
 
-4/20 - Added CSS to video chatting room
+4/20 - Added CSS to video chatting room.
 
 
-4/22 - Deleted dulicate buttonn on profile page
+4/22 - Deleted duplicate button on profile page, and users can no longer add one language more than once on profile. Now that I have some free time on my hands I want to work on internationalization since this is in fact a language app. I will start by making different forms for different languages
+
+
 # My Other Projects
 Take a look at these couple examples that I have in my own portfolio:
 
