@@ -110,7 +110,7 @@
 									<% if (found && userProfile.languages[i].language === found.language && userProfile.languages[i].teachOrLearn === "teach" && userProfile.languages[i].fluency >= 5){ %>
 									<li>
 
-										<form class="startChat" action="/videoChat/<%=found._id%>" method="get">
+										<form class="timer2 startChat" action="/videoChat/<%=found._id%>" method="get">
 											<button id="<%= userProfile.languages[i].language %>" class= type="submit" name="button"> Connect with <span> <%= found.fromUser %> </span> to practice <span> <%= userProfile.languages[i].language %></span>
 											</button>
 										</form>

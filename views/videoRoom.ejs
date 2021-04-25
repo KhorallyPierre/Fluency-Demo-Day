@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/videoRoom.css"/>
+  <link rel="stylesheet" href="/videoRoom.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/58eb5e6d41.js" crossorigin="anonymous"></script>
 
-  <title>Document</title>
+  <title>Video Chat</title>
 
 </head>
+
 <body class="body">
+  <header id="header">
+    <div class="logoStyle">
+      <a href="/"> <img id="logo" class= "love" src="../images/pic01.jpg" alt=""> </a>
+    </div>
+  </header>
   <section class="videoBox">
     <div id="video-grid"></div>
-    <button class="button primary begin" type="button" name="button"> <a href="http://localhost:8000/videoChat/<%=roomId%>">Begin Session</a> </button>
-      <button class="button primary end" type="button"
-       name="button"> <a href="/endVideoChat/<%=roomId %>">End Session</a> </button>
+    <div class="divBar">
+      <button class="end" type="button" name="button"> <i class="fas fa-microphone-alt-slash"></i></button>
+      <button class="end" type="button" name="button"> <i class="fas fa-exclamation-triangle"></i></button>
 
-    </section>
+            <button class="end" type="button" name="button"> <a href="/endVideoChat/<%=roomId %>"> <i class="iconHang fas fa-phone-slash"></i></a> </button>
 
+    </div>
+
+
+  </section>
+  <section class="timeLeft">
+    <span id="time-left"> Time Left: <span> 1500 </span></span>
+  </section>
   <section class="topics">
-    <h3> Suggested Topics:</h3>
+    <h3> Suggested Topics: (scroll down)</h3>
     <ul>
       <li> Describe your last vacation</li>
       <li> Describe your best friend</li>
@@ -38,7 +53,9 @@
 <script defer src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 <script src="/socket.io/socket.io.js" defer></script>
 <script src="/videoScript.js" defer></script>
+<script src="/main.js" defer></script>
 
 
 </script>
+
 </html>
