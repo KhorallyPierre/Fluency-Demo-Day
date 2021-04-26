@@ -30,6 +30,47 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
+#containerCheck {
+  margin: 200px;
+}
+
+.cardsPics {
+  float: left;
+  width: 100%;
+}
+
+#visa, #master, #maestro, #express {
+  width: 17%;
+  float: left;
+  margin-left: 55px;
+}
+
+.input_hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+.selected {
+    background-color: #ccc;
+}
+
+#emotion {
+    display:block;
+    cursor: pointer;
+}
+.join {
+  font-size: 21px;
+
+}
+
+.billMe {
+  color: #e44c65;
+    font-weight: 300;
+    line-height: 1em;
+    margin: 0 0 0 0;
+    font-size: 30px;
+}
+
 .tryIt2 {
   width: 100%;
   margin-left: 200px;
@@ -2629,7 +2670,6 @@ input[type="radio"]+label {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.75);
   cursor: pointer;
-  display: inline-block;
   font-size: 1em;
   font-weight: 100;
   padding-left: 2.55em;

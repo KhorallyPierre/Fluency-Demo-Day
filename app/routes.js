@@ -45,6 +45,35 @@ module.exports = function(app, passport, db) {
     })
   })
 
+  app.get('/checkout', isLoggedIn,  function(req, res) {
+    res.render('checkout.ejs', {
+      user: req.user,
+      userProfile: req.userProfile,
+    })
+  })
+
+  app.get('/sessionEnded', isLoggedIn, function(req, res) {
+    res.render('sessionEnded.ejs', {
+      user: req.user,
+      userProfile: req.userProfile,
+
+    })
+  })
+
+  //
+    app.get('/success', isLoggedIn, function(req, res) {
+      res.render('success.ejs', {
+        user: req.user,
+        userProfile: req.userProfile,
+      })
+    })
+
+
+
+
+
+
+
 
   app.get('/deleteLang/:language', isLoggedIn, function(req, res) {
     console.log('about to delete language', req.params.language, 'for',
