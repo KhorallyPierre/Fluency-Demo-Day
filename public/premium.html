@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<title> Welcome </title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/58eb5e6d41.js" crossorigin="anonymous"></script>
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body>
+	<header id="header">
+		<h1 id="logo"><a href="/"> <img class="love" src="images/pic01.jpg" alt=""> </a></h1>
+		<% if (areServicesNeeded){ %>
+		<div class="alertt">
+			<h3 class="chatNow"> go talk</h3>
+		</div>
+		<% } else { %>
+		<div class="noAlertt">
+			<h3 class="chatNow">no one to talk to</h3>
+		</div>
+		<%	} %>
+		<nav id="nav">
+			<ul>
+				<li><a href="/left-sidebar"> About Fluency</a></li>
+				<li><a href="/right-sidebar"> What to Expect</a></li>
+				<li><a href="/premium"> Try Premium</a></li>
+				<li><a href="/profile" class="button primary">My Profile </a></li>
+				<li><a href="/logout" class="button primary">Log Out</a></li>
+			</ul>
+		</nav>
+	</header>
+	<h2 class="assessment centerMe"> A Perfect Fit for Every Pair </h2>
+
+	<!-- when user chooses a language, questions show up in that language
+	profile gets rendered in that languages -->
+<section class= "tryIt2">
+	<section class="tryIt">
+		<h2>Free</h2>
+		<h4> Everything you need to start learning</h4>
+		<h2> $0.00</h2>
+		<button class ="itFree" type="button" name="button"> <a href="/signup"></a>Get Started</button>
+		<ul>
+			<li> Access to all users </li>
+			<li> Chat up to 15 minutes in your preferred language </li>
+			<li> User profile, where you cant manage and keep track of your languages</li>
+			<li> Many user friendly options </li>
+		</ul>
+
+	</section>
+
+	<section class="tryIt">
+		<h2> <i class="fas fa-crown"></i>Pro</h2>
+		<h4> Everything you need to start learning</h4>
+		<h2> $119.99</h2> <h1> / year </h1>
+		<h1>At $9.99 per month</h1>
+		<button  class ="itFree" type="button" name="button"> <a href="/signup"></a>Try it for Free</button>
+		<ul>
+			<li> Everything Free has, plus: </li>
+			<li> Chat for 30 minutes in your preferred language </li>
+			<li> Keep track of past video chats </li>
+			<li> Rate helpfulness of your partners</li>
+		</ul>
+
+	</section>
+
+	<section class="tryIt">
+		<h2> <i class="fas fa-award"></i></i>Enterprise</h2>
+		<h4> Everything you need to start learning</h4>
+		<h2> $30.00 </h2> <h1> / year </h1>
+		<h1>/month per person</h1>
+		<button class ="itFree" type="button" name="button"> <a href="/signup"></a>Try it for Free</button>
+		<ul>
+			<li> Everything Premium has, plus: </li>
+			<li> Add users as friends </li>
+		</ul>
+	</section>
+</section>
+
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="main.js"></script>
+
+</body>
+
+</html>

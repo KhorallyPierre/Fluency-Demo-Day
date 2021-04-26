@@ -16,7 +16,7 @@
 }
 
 .love {
-  width: 10%;
+  width: 17%;
   border-radius: 30%;
   margin-top: 10px;
   background-color: rgb(21 11 58);
@@ -25,7 +25,7 @@
 }
 
 #header {
-  background: rgb(21 11 58);
+  /* background: rgb(21 11 58); */
   box-shadow: 0 0 0.25em 0 rgb(0 0 0 / 25%);
   cursor: default;
   height: 7.9em;
@@ -61,27 +61,26 @@ video {
   margin-left: 20px;
 }
 
-.body {
-  background-image: url('images/background.png');
+body {
+  background-image: url('background.png') !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 0;
-  height: 1000px;
+  /* margin: 0;
+  height: 1000px; */
 }
 
 .topics {
-  color: black;
-      position: absolute;
-      top: 81%;
-      left: 72%;
-      font-size: 17px;
-      height: 154px;
-      text-align: center;
-      background: white;
-      border-radius: 15px;
-  }
-
+  color: lavender;
+  position: absolute;
+  top: 81%;
+  left: 72%;
+  font-size: 17px;
+  height: 154px;
+  text-align: center;
+  background: rgb(198 77 100);
+  border-radius: 15px;
+}
 ul {
   list-style-type: none;
   text-align: left;

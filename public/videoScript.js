@@ -9,10 +9,12 @@ myVideo.muted = true
 // object being used to organize stuff in one place - referred to as a namespace
 const peers = {}
 // asking permission to get camera
+let theStream = null
 navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
 }).then(stream => {
+  theStream = stream
   addVideoStream(myVideo, stream)
 
   myPeer.on('call', call => {
@@ -53,26 +55,42 @@ function connectToNewUser(userId, stream) {
 }
 // event listenever for when video stream begins
 function addVideoStream(video, stream) {
+  console.log('number of screens active', videoGrid.children.length)
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
     video.play()
   })
   videoGrid.append(video)
+  if (videoGrid.children.length === 2) {
+
+    countDown()
+  }
+
 }
 
-// document.querySelector('timer2')
-// const startingMinutes = 15;
-// let time = startingMinutes * 60;
-//
-// const countdownEl = getElementById('countdown');
-//
-// setInterval(updateCountdown, 1000);
-//
-// function updateCountdown() {
-//   const minutes = Math.floor(time / 60);
-//   let seconds = time % 60;
-//
-//   countdownEl.innerHTML = `${minutes}: ${seconds}`;
-//
-//   time--;
-// }
+const timeLeftDisplay = document.querySelector('#time-left')
+timeLeft = 3000
+
+function countDown() {
+  console.log('timer has started')
+  setInterval(function() {
+    if (timeLeft <= 0) {
+      clearInterval(timeLeft = 0)
+      window.location.href = "/profile"
+    }
+
+    timeLeftDisplay.innerText = "Time Left: " + timeLeft
+    timeLeft -= 1
+
+  }, 1000)
+}
+
+// to mute audio
+function muteSelf() {
+  console.log('muting myself')
+  theStream.getAudioTracks()[0].enabled = false;
+}
+
+document.querySelector('.muteSelf').addEventListener('click', muteSelf)
+
+// window.addEventListener('load', countDown)

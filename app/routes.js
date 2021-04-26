@@ -13,7 +13,7 @@ module.exports = function(app, passport, db) {
   app.get('/assessment', isLoggedIn, function(req, res) {
     res.render('assessment.ejs', {
       user: req.user,
-      userProfile: req.userProfile,
+      // userProfile: req.userProfile,
       areServicesNeeded: Boolean(req.found)
     })
   })
@@ -21,7 +21,7 @@ module.exports = function(app, passport, db) {
 
 
   // assessment Page gets rendered
-  app.get('/right-sidebar', isLoggedIn, function(req, res) {
+  app.get('/right-sidebar', isLoggedIn, servicesNeeded, function(req, res) {
     res.render('right-sidebar.ejs', {
       user: req.user,
       // userProfile: req.userProfile
@@ -29,7 +29,7 @@ module.exports = function(app, passport, db) {
     })
   })
 
-  app.get('/left-sidebar', isLoggedIn, function(req, res) {
+  app.get('/left-sidebar', isLoggedIn, servicesNeeded, function(req, res) {
     res.render('left-sidebar.ejs', {
       user: req.user,
       // userProfile: req.userProfile
@@ -37,17 +37,30 @@ module.exports = function(app, passport, db) {
     })
   })
 
+  app.get('/premium', isLoggedIn, servicesNeeded, function(req, res) {
+    res.render('premium.ejs', {
+      user: req.user,
+      userProfile: req.userProfile,
+      areServicesNeeded: Boolean(req.found)
+    })
+  })
+
 
   app.get('/deleteLang/:language', isLoggedIn, function(req, res) {
-    console.log('about to delete language', req.params.language)
+    console.log('about to delete language', req.params.language, 'for',
+  req.user._id)
     db.collection('userProfile').updateOne({
+
         userId: req.user._id
+
       }, {
         $pull: {
           'languages': {
             language: req.params.language
           }
         }
+      },{
+        upsert:false
       },
       (err, result) => {
         if (err) {

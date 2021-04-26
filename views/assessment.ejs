@@ -27,9 +27,9 @@
 			<ul>
 				<li><a href="/left-sidebar"> About Fluency</a></li>
 				<li><a href="/right-sidebar"> What to Expect</a></li>
+				<li><a href="/premium"> Try Premium</a></li>
 				<li><a href="/profile" class="button primary">My Profile </a></li>
 				<li><a href="/logout" class="button primary">Log Out</a></li>
-
 			</ul>
 		</nav>
 	</header>
@@ -43,14 +43,14 @@
 		<form id="englishForm" class="languageForm boldMe" action="/addLanguage" method="post">
 			<label class="changeTo" for="toilet-select"> Select the language you'd like to work with </label>
 			<select class="width widthSelect" name="language">
-				<option> English </option>
-				<option>French</option>
-				<option>Spanish</option>
-				<option> Haitian Creole </option>
-				<option>Portuguese</option>
-<!-- add event listener on button so that langauge chosen hides English assessmnet (becasue that's the default) and shows
+				<option class="english"> English </option>
+				<option class="french">French</option>
+				<option class="spanish">Spanish</option>
+				<option class="haitian"> Haitian Creole </option>
+				<option class="portuguese">Portuguese</option>
+				<!-- add event listener on button so that langauge chosen hides English assessmnet (becasue that's the default) and shows
 new assessment for that langauge -->
-<!-- hide based on class, unhide based on ID -->
+				<!-- hide based on class, unhide based on ID -->
 				</optgroup>
 			</select>
 			<section>
@@ -60,48 +60,47 @@ new assessment for that langauge -->
 					<option value="learn"> Learn</option>
 				</select>
 			</section>
+			<section class="englishQs">
+				<section class="width">
+					<label class="changeTo" for="toilet-select"> Is <span class="language"> this language </span> your first language? </label>
+					<section class="b">
+						<select class="ur" name="firstLang">
+							<option value="0"> Yes</option>
+							<option value="2"> No </option>
 
-			<!-- <h3> Fluency Assesment </h3> -->
-			<section class="width">
-				<label class="changeTo" for="toilet-select"> Is <span class="language"> this language </span> your first language? </label>
-				<section class="b">
-					<select class="ur" name="firstLang">
-						<option value="0"> Yes</option>
-						<option value="2"> No </option>
+						</select>
+					</section>
 
-					</select>
 				</section>
 
-			</section>
+				<section class="width">
+					<label class="changeTo" for="dessert-select"> Do you live in a country where <span class="language">this language </span>is spoken? </label>
+					<section class=b>
+						<select class="ur" name="country">
+							<option value="5"> Yes, most people here speak English </option>
+							<option value="4"> No, but my family speaks English </option>
+							<option value="2"> No </option>
+							<option value="4"> No, but I watch programs in English without subtitles</option>
 
-			<section class="width">
-				<label class="changeTo" for="dessert-select"> Do you live in a country where <span class="language">this language </span>is spoken? </label>
-				<section class=b>
-					<select class="ur" name="country">
-						<option value="5"> Yes, most people here speak English </option>
-						<option value="4"> No, but my family speaks English </option>
-						<option value="2"> No </option>
-						<option value="4"> No, but I watch programs in English without subtitles</option>
+						</select>
+					</section>
 
-					</select>
+
 				</section>
 
+				<section class="width">
+					<label class="changeTo" for="cartoon-select"> One a scale from 1(great) to 5(not so great), what do you believe your level of fluency to be? </label>
+					<section class="b">
+						<select class="ur" name="scale">
+							<option value="5"> 1</option>
+							<option value="4"> 2 </option>
+							<option value="3"> 3 </option>
+							<option value="2"> 4 </option>
+							<option value="1"> 5 </option>
 
-			</section>
-
-			<section class="width">
-				<label class="changeTo" for="cartoon-select"> One a scale from 1(great) to 5(not so great), what do you believe your level of fluency to be? </label>
-				<section class="b">
-					<select class="ur" name="scale">
-						<option value="5"> 1</option>
-						<option value="4"> 2 </option>
-						<option value="3"> 3 </option>
-						<option value="2"> 4 </option>
-						<option value="1"> 5 </option>
-
-					</select>
+						</select>
+					</section>
 				</section>
-
 				<section class="width">
 
 					<label class="changeTo" for="tragedy-select"> Complete the following sentence: Alicia, __________ the windows please. It's too hot in here.</label>
@@ -152,8 +151,11 @@ new assessment for that langauge -->
 		</form>
 
 	</section>
+	</section>
+	<!-- <h3> Fluency Assesment </h3> -->
+
 	<div class="twoSidesRight">
-<!-- // update mongo for languages thatonly get updated -->
+		<!-- // update mongo for languages thatonly get updated -->
 
 
 

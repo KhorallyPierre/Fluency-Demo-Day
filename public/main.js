@@ -1,25 +1,5 @@
 var chat = document.getElementsByClassName('connectToChat');
 
-document.addEventListener('DOMContendLoaded', () => {
-  const timeLeftDisplay = document.querySelector('#time-left')
-  const startTime = document.querySelector('.timer2') // button that should trigger the start of the timer
-  timeLeft = 1500
-
-  function countDown() {
-    setInterval(function() {
-      if (timeLeft <= 0) {
-        clearInterval(timeLeft = 0)
-      }
-
-      timeLeftDisplay.innerText = "Time Left: " + timeLeft
-      timeLeft -= 1
-    }, 1000)
-  }
-startTime.addEventListener('click', countDown)
-window.addEventListener('load', countDown)
-
-})
-
 
 
 console.log(chat)
@@ -42,3 +22,11 @@ Array.from(chat).forEach(function(element) {
 
   })
 });
+// remove english form not working
+// function chooseLang(){
+//   let option = document.querySelector('.french')
+//     document.querySelector('.englishQs').style.display = "none"
+//
+// }
+//
+//   document.querySelector('.french').addEventListener('click', chooseLang)

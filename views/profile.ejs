@@ -40,9 +40,9 @@
 
 					<li><a href="/left-sidebar"> About Fluency</a></li>
 					<li><a href="/right-sidebar"> What to Expect</a></li>
+					<li><a href="/premium"> Try Premium</a></li>
 					<li><a href="/profile" class="button primary">My Profile </a></li>
 					<li><a href="/logout" class="button primary">Log Out</a></li>
-
 				</ul>
 			</nav>
 		</header>
@@ -110,7 +110,7 @@
 									<% if (found && userProfile.languages[i].language === found.language && userProfile.languages[i].teachOrLearn === "teach" && userProfile.languages[i].fluency >= 5){ %>
 									<li>
 
-										<form class="timer2 startChat" action="/videoChat/<%=found._id%>" method="get">
+										<form class=" startChat" action="/videoChat/<%=found._id%>" method="get">
 											<button id="<%= userProfile.languages[i].language %>" class= type="submit" name="button"> Connect with <span> <%= found.fromUser %> </span> to practice <span> <%= userProfile.languages[i].language %></span>
 											</button>
 										</form>
@@ -124,7 +124,7 @@
 									if (myRequest){ %>
 									<li>
 										<form class="startChat" action="/videoChat/<%=myRequest._id%>" method="get">
-											<button id="<%= userProfile.languages[i].language %>" type="submit" name="button"> Wait for Teacher to practice <span> <%= userProfile.languages[i].language %></span> </button>
+											<button id="<%= userProfile.languages[i].language %>" type="submit" name="button"> Wait in chatroom to practice <span> <%= userProfile.languages[i].language %></span> </button>
 										</form>
 									</li>
 									<%	} else { %>
