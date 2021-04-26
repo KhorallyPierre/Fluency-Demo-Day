@@ -10,7 +10,7 @@ module.exports = function(app, passport, db) {
 
 
   // assessment Page gets rendered
-  app.get('/assessment', isLoggedIn, function(req, res) {
+  app.get('/assessment', isLoggedIn, servicesNeeded, function(req, res) {
     res.render('assessment.ejs', {
       user: req.user,
       // userProfile: req.userProfile,

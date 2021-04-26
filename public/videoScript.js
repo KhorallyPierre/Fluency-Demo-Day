@@ -69,20 +69,20 @@ function addVideoStream(video, stream) {
 }
 
 const timeLeftDisplay = document.querySelector('#time-left')
-timeLeft = 3000
+timeLeft = 1500
 
 function countDown() {
   console.log('timer has started')
   setInterval(function() {
     if (timeLeft <= 0) {
       clearInterval(timeLeft = 0)
-      window.location.href = "/profile"
+      window.location.href = "/sessionEnded"
     }
 
     timeLeftDisplay.innerText = "Time Left: " + timeLeft
     timeLeft -= 1
 
-  }, 1000)
+  }, 2000)
 }
 
 // to mute audio

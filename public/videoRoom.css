@@ -16,7 +16,7 @@
 }
 
 .love {
-  width: 17%;
+  width: 11%;
   border-radius: 30%;
   margin-top: 10px;
   background-color: rgb(21 11 58);
@@ -62,7 +62,8 @@ video {
 }
 
 body {
-  background-image: url('background.png') !important;
+  /* background-image: url('background.png') !important; */
+  background-color: rgb(23, 17, 52);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
