@@ -88,7 +88,14 @@ function countDown() {
 // to mute audio
 function muteSelf() {
   console.log('muting myself')
-  theStream.getAudioTracks()[0].enabled = false;
+   if (theStream.getAudioTracks()[0].enabled){
+     theStream.getAudioTracks()[0].enabled = false;
+     document.querySelector('.muteSelf').style.color = red;
+   } else {
+     theStream.getAudioTracks()[0].enabled = true;
+     document.querySelector('.muteSelf').style.color = green;
+   }
+
 }
 
 document.querySelector('.muteSelf').addEventListener('click', muteSelf)
