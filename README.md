@@ -45,7 +45,7 @@ Nothing in tech is daunting as long as you make it fun! I love learning new lang
 
 4/25 - added more CSS to video chatting room. Also added feedback page for when a conversation ends / or if there was a problem during the call.
 
-4/26 - working on getting mute button fixed (will be running more tests), and redering forms for teachers in different languages
+4/26 - working on getting mute button fixed (will be running more tests), and rendering forms for teachers in different languages
 # My Other Projects
 Take a look at these couple examples that I have in my own portfolio:
 
