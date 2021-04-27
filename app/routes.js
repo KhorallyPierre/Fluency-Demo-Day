@@ -256,7 +256,7 @@ module.exports = function(app, passport, db) {
           console.log("end video chat", err)
           res.send(err)
         } else {
-          res.redirect('/profile')
+          res.redirect('/sessionEnded')
         }
       })
   })
