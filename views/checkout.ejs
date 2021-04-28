@@ -45,9 +45,10 @@
 
       <!-- Five -->
 
-      <div class="wrapperCheck">
+      <div class="styleMarge wrapperCheck">
         <div id="containerCheck">
-          <form action="">
+          <form action="" class="mainForm">
+            <div class="billing">
             <h1 class="billMe">
               <i class="fas fa-shipping-fast"></i>
               Billing Details
@@ -80,6 +81,8 @@
                 <input type="text" name="zip" placeholder="02113">
               </div>
             </div>
+          </div>
+          <div class="cardCheck">
             <h1 class="billMe">
               <i class="far fa-credit-card"></i> Payment Information
             </h1>
@@ -88,7 +91,7 @@
                 <input type="radio" name="emotion"  />
                 <label for="sad"><img id="visa" src="https://logo-all.ru/uploads/posts/2016-02/0_visa_brand.jpg" alt="visa" /></label>
               </div>
-              <div>
+              <div id="emotion">
                 <input type="radio" name="emotion"  />
                 <label for="happy"><img id="master"src="https://pngimg.com/uploads/mastercard/mastercard_PNG13.png" alt="master" /></label>
               </div>
@@ -120,6 +123,7 @@
                 <input type="text" name="security" placeholder="368">
               </div>
             </div>
+        </div>
             <div class="btns">
               <a href="/success"><button class="button primary join">Join Premium</button> </a>
               <a href="/index"><button class="button primary join" type="button" name="button"> Return to Homepage</button> </a>

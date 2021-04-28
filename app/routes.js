@@ -10,6 +10,8 @@ module.exports = function(app, passport, db) {
 
 
   // assessment Page gets rendered
+
+  // middlewate
   app.get('/assessment', isLoggedIn, servicesNeeded, function(req, res) {
     res.render('assessment.ejs', {
       user: req.user,
@@ -67,12 +69,6 @@ module.exports = function(app, passport, db) {
         userProfile: req.userProfile,
       })
     })
-
-
-
-
-
-
 
 
   app.get('/deleteLang/:language', isLoggedIn, function(req, res) {
@@ -157,11 +153,7 @@ module.exports = function(app, passport, db) {
         if (requests.length != 0) {
           found = requests[0]
         }
-        // for (let i = 0; i < userProfile.languages.length; i++) {
-        //   if (userProfile.languages[i].teachOrLearn === "teach") {
-        //     found = requests.find(request => request.language === userProfile.languages[i].language);
-        //   }
-        // }
+
         req.userProfile = userProfile
         req.requests = requests
         req.found = found
@@ -210,14 +202,7 @@ module.exports = function(app, passport, db) {
           });
         }
       })
-      // const profileObject = {
-      //   email: req.body.email,
-      //   userName: req.body.userName,
-      //   proficiency: req.body.proficiency,
-      //   language: req.body.language,
-      //   learning: req.body.learning,
-      //   img: "/uploads/" + fileName
-      // }
+
 
     }
   })
@@ -346,37 +331,6 @@ module.exports = function(app, passport, db) {
 
   });
 
-  // duplicate profile route
-  // not sure what this does
-  //   app.get('/profile', isLoggedIn, servicesNeeded, function(req, res) {
-  //     console.log('teacher available', req)
-  //     db.collection('messages').findOne({
-  //       email: req.user.local.email
-  //     }, (err, result) => {
-  //       if (err) return console.log(err)
-  //       // inside find() we need a filter to find messages addressed to a
-  //       //specific user (whoever is logged in)
-  //       db.collection('userProfile').find({
-  //         picture: req.user.local.picture
-  //
-  //       }).toArray((err, messages) => {
-  //         // not sure about my console.log below
-  //         console.log('the displayed message is', req.user.local.message, messages)
-  //         res.render('profile.ejs', {
-  //           user: req.user,
-  //           userProfile: result,
-  //           picture: req.user.local.picture,
-  //           areServicesNeeded: Boolean(req.found)
-  //
-  //         })
-  //       })
-  //     });
-  //   })
-
-
-
-
-
 
 
   // then figure out combining matching of two people (student and teacher ) and putting them in the same room
@@ -414,73 +368,6 @@ module.exports = function(app, passport, db) {
     res.redirect('/');
   });
 
-  // // message board routes ===============================================================
-  //
-  // app.post('/messages', (req, res) => {
-  //   db.collection('messages').save({
-  //     name: req.body.name,
-  //     msg: req.body.msg,
-  //     thumbUp: 0,
-  //     thumbDown: 0
-  //   }, (err, result) => {
-  //     if (err) return console.log(err)
-  //     console.log('saved to database')
-  //     res.redirect('/profile')
-  //   })
-  // })
-  //
-  // app.put('/messages', (req, res) => {
-  //   db.collection('messages')
-  //     .findOneAndUpdate({
-  //       name: req.body.name,
-  //       msg: req.body.msg
-  //     }, {
-  //       $set: {
-  //         thumbUp: req.body.thumbUp + 1
-  //       }
-  //     }, {
-  //       sort: {
-  //         _id: -1
-  //       },
-  //       upsert: true
-  //     }, (err, result) => {
-  //       if (err) return res.send(err)
-  //       res.send(result)
-  //     })
-  // })
-  //
-  // app.put('/messages/down', (req, res) => {
-  //   db.collection('messages')
-  //     .findOneAndUpdate({
-  //       name: req.body.name,
-  //       msg: req.body.msg
-  //     }, {
-  //       $set: {
-  //         thumbUp: req.body.thumbUp - 1
-  //       }
-  //     }, {
-  //       sort: {
-  //         _id: -1
-  //       },
-  //       upsert: true
-  //     }, (err, result) => {
-  //       if (err) return res.send(err)
-  //       res.send(result)
-  //     })
-  // })
-
-  // app.delete('/profile', (req, res) => {
-  //   console.log(req.user)
-  //   db.collection('userProfile').findOneAndDelete({
-  //     language: req.body.language,
-  //
-  //   },
-  //
-  //   } , (err, result) => {
-  //     if (err) return res.send(500, err)
-  //     res.send('language deleted!')
-  //   })
-  // })
 
   app.delete('/profile', (req, res) => {
     db.collection('userProfile').findOneAndDelete({
@@ -497,7 +384,6 @@ module.exports = function(app, passport, db) {
 
   //needs to create video request in request collection on mongodb
   // needs to redirect user to a res.redirect to the video page
-  // implement github code
 
   app.get('/pair', isLoggedIn, servicesNeeded, function(req, res) {
     const profileObject = {
@@ -512,21 +398,6 @@ module.exports = function(app, passport, db) {
       language: req.query.learning,
       status: "waiting",
       toUser: null
-
-
-      // },
-      // (error, paired) => {
-      // var possibleTeacher = []
-      // for (el of result) {
-      //   el.languages.forEach(lang => {
-      //     if (lang.language === req.query.learning && lang.teachOrLearn === 'teach')
-      //       possibleTeacher.push({
-      //         user: el.email,
-      //         fluency: lang.fluency
-      //       });
-      // });
-      // }
-      // console.log(possibleTeacher)
     }, (error, pairing) => {
       console.log('HELOOOOOOO', pairing)
       if (error) {
@@ -570,7 +441,6 @@ module.exports = function(app, passport, db) {
 
   // process the signup form
   app.post('/signup', passport.authenticate('local-signup', {
-    // COMMENTED OUT to allow the function below to run after passport creates a user
     // successRedirect: '/profile', // redirect to the secure profile section
     failureRedirect: '/login', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
@@ -586,11 +456,7 @@ module.exports = function(app, passport, db) {
       res.redirect('/profile')
     })
   });
-  // app.post('/signup', passport.authenticate('local-signup', {
-  //   successRedirect: '/profile', // redirect to the secure profile section
-  //   failureRedirect: '/signup', // redirect back to the signup page if there is an error
-  //   failureFlash: true // allow flash messages
-  // }));
+
 
   // =============================================================================
   // UNLINK ACCOUNTS =============================================================

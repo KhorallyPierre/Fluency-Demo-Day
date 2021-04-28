@@ -51,6 +51,13 @@ ul {
   list-style: none !important;
 }
 
+.styleMarge {
+    margin-top: 99px;
+    margin-left: 108px;
+    margin-right: 108px;
+}
+
+
 .love {
   width: 14%;
   border-radius: 30%;
