@@ -979,8 +979,9 @@ body.landing.is-preload:after {
   margin: auto;
   /* max-width: calc(78% - 4em); */
   width: 70em;
-  color: black;
+  color: #e44c65;
   font-weight: 900;
+  margin-top: 82px;
 }
 .container.xsmall {
   width: 17.5em;
@@ -3907,18 +3908,17 @@ body.landing #header {
 
 #banner .content .image {
   border-radius: 100%;
-  display: inline-block;
-  height: 40em;
-  margin-left: 3em;
-  vertical-align: middle;
-  width: 40em;
+display: inline-block;
+height: 40em;
+margin-left: 0em;
+vertical-align: middle;
+width: 31em;
 }
 
 #banner .content .image img {
   display: block;
   width: 101%;
   padding-top: 1px;
-}
 }
 
 body.is-touch #banner {
@@ -4128,6 +4128,8 @@ body.is-touch #banner {
 
   #banner .content .image {
     margin: 0;
+    padding: 9em 0;
+text-align: center;
   }
 
   /* Footer */
