@@ -15,28 +15,40 @@
 	<header id="header">
 
 		<% if (areServicesNeeded){ %>
-		<div class="alertt">
+		<div class="alertt"> </div>
 
-		<%	} %>
-		<nav id="nav">
-			<ul>
-				<li><a href="/left-sidebar"> About Fluency</a></li>
-				<li><a href="/right-sidebar"> What to Expect</a></li>
-				<li><a href="/premium"> Try Premium</a></li>
-				<li><a href="/profile" class="button primary">My Profile </a></li>
-				<li><a href="/logout" class="button primary">Log Out</a></li>
-			</ul>
-		</nav>
+			<%	} %>
+			<nav id="nav">
+				<ul>
+					<li><a href="/left-sidebar"> About Fluency</a></li>
+					<li><a href="/right-sidebar"> What to Expect</a></li>
+					<li><a href="/premium"> Try Premium</a></li>
+					<li><a href="/profile" class="button primary">My Profile </a></li>
+					<li><a href="/logout" class="button primary">Log Out</a></li>
+				</ul>
+			</nav>
 	</header>
+	<form action="index.html" method="post">
+		<h2 class="assessment">Select language you'd like to work with </h2>
+		<select id="addLang" name="">
+			<option value="englishForm"> English</option>
+			<option value="spanishForm"> Spanish</option>
+			<option value="portugueseForm">Portuguese</option>
+			<option value="creoleForm"> Haitian Creole</option>
+			<option value="frenchForm"> French</option>
+		</select>
+
+	</form>
+
+
 	<h2 class="assessment"> Language Assessment </h2>
 
-	<!-- when user chooses a language, questions show up in that language
-	profile gets rendered in that languages -->
+	<!-- // english form ==================== -->
 
-	<section class="major half3 assessment2">
+	<section id="englishForm" class="showMePlease major half3 assessment2">
 		<!-- prevent user from signing up for language already in profile  -->
-		<form id="englishForm" class="languageForm boldMe" action="/addLanguage" method="post">
-			<label class="changeTo" for="toilet-select"> Select the language you'd like to work with </label>
+		<form class="languageForm boldMe" action="/addLanguage" method="post">
+			<label class="changeTo" for="toilet-select"> Select language</label>
 			<select class="width widthSelect" name="language">
 				<option class="english"> English </option>
 				<option class="french">French</option>
@@ -44,12 +56,12 @@
 				<option class="haitian"> Haitian Creole </option>
 				<option class="portuguese">Portuguese</option>
 				<!-- add event listener on button so that langauge chosen hides English assessmnet (becasue that's the default) and shows
-new assessment for that langauge -->
+	new assessment for that langauge -->
 				<!-- hide based on class, unhide based on ID -->
 				</optgroup>
 			</select>
 			<section>
-				<label class="changeTo" for="toilet-select"> Would you like to teach or learn this language? </label>
+				<label class="changeTo" for="toilet-select"> Would you like to teach or learn English? </label>
 				<select class="width" name="teachOrLearn">
 					<option value="teach"> Teach </option>
 					<option value="learn"> Learn</option>
@@ -57,7 +69,7 @@ new assessment for that langauge -->
 			</section>
 			<section class="englishQs">
 				<section class="width">
-					<label class="changeTo" for="toilet-select"> Is <span class="language"> this language </span> your first language? </label>
+					<label class="changeTo" for="toilet-select"> Is English your first language? </label>
 					<section class="b">
 						<select class="ur" name="firstLang">
 							<option value="0"> Yes</option>
@@ -69,13 +81,13 @@ new assessment for that langauge -->
 				</section>
 
 				<section class="width">
-					<label class="changeTo" for="dessert-select"> Do you live in a country where <span class="language">this language </span>is spoken? </label>
+					<label class="changeTo" for="dessert-select"> Do they speak English where you currently live? </label>
 					<section class=b>
 						<select class="ur" name="country">
-							<option value="5"> Yes, most people here speak English </option>
-							<option value="4"> No, but my family speaks English </option>
+							<option value="5"> yes, most people here speak fluent English </option>
+							<option value="4"> No, but my entire family speaks English</option>
 							<option value="2"> No </option>
-							<option value="4"> No, but I watch programs in English without subtitles</option>
+							<option value="3"> No, but I can watch tv in English without subtitles and understand</option>
 
 						</select>
 					</section>
@@ -84,7 +96,7 @@ new assessment for that langauge -->
 				</section>
 
 				<section class="width">
-					<label class="changeTo" for="cartoon-select"> One a scale from 1(great) to 5(not so great), what do you believe your level of fluency to be? </label>
+					<label class="changeTo" for="cartoon-select"> On a scale of 1 (excellent) to 5 (not so great), how would you rate your fluency level?</label>
 					<section class="b">
 						<select class="ur" name="scale">
 							<option value="5"> 1</option>
@@ -98,13 +110,13 @@ new assessment for that langauge -->
 				</section>
 				<section class="width">
 
-					<label class="changeTo" for="tragedy-select"> Complete the following sentence: Alicia, __________ the windows please. It's too hot in here.</label>
+					<label class="changeTo" for="tragedy-select"> Finish the following sentence: Alecia, ______ the window, please. It's too hot in here.</label>
 					<section class=b>
 						<select class="ur" name="teach">
 							<option value="1"> opens </option>
 							<option value="5"> open</option>
-							<option value="1"> opened </option>
-							<option value="1"> will open</option>
+							<option value="1"> to open</option>
+							<option value="1"> opened</option>
 
 
 						</select>
@@ -113,26 +125,26 @@ new assessment for that langauge -->
 				</section>
 
 				<section class="width">
-					<label class="changeTo" for="bird-select"> Complete the following sentence: Eli's hobbies include jogging, swimming, and __________.</label>
+					<label class="changeTo" for="bird-select"> Complete the following sentence: Eli likes to swim, go camping, and ______.</label>
 					<section class=b>
 						<select class="ur2" name="book">
-							<option value="1"> to climb mountains </option>
-							<option value="1"> climb mountains </option>
-							<option value="2"> to climb </option>
-							<option value="5"> climbing mountains</option>
+							<option value="5"> eating </option>
+							<option value="2"> to eat </option>
+							<option value="1"> no eat </option>
 						</select>
 					</section>
 
 				</section>
 
 				<section class="width">
-					<label class="changeTo" for="rapper-select"> Complete the following sentence:Who is ____________, Marina or Sachiko?</label>
+					<label class="changeTo" for="rapper-select"> Complete the following sentence: who is ____________, Marina oswa Sachiko?</label>
 					<section class="b">
 						<select class="ur2" name="help">
-							<option value="4"> tallest</option>
 							<option value="4"> taller</option>
-							<option value="1"> tall </option>
-							<option value="5"> the tallest</option>
+							<option value="1"> the tall </option>
+							<option value="3"> the tallest </option>
+							<option value="5"> tallest </option>
+
 						</select>
 					</section>
 
@@ -140,15 +152,463 @@ new assessment for that langauge -->
 
 			</section>
 			<section class="submit">
-				<button type="submit" id="cute" class="button primary"> Add Language to Profile</button>
-				<h1>Languages already on profile</h1>
+				<button type="submit" id="cute" class="button primary"> Save</button>
 			</section>
 		</form>
 
 	</section>
+
+
+	<!-- // spanish form ================================ -->
+
+	<section id="spanishForm" class="hideMePlease major half3 assessment2">
+		<!-- prevent user from signing up for language already in profile  -->
+		<form class="languageForm boldMe" action="/addLanguage" method="post">
+			<label class="changeTo" for="toilet-select">Seleccione el idioma con el que le gustaría trabajar </label>
+			<select class="width widthSelect" name="language">
+				<option class="english"> English </option>
+				<option class="french">French</option>
+				<option class="spanish">Spanish</option>
+				<option class="haitian"> Haitian Creole </option>
+				<option class="portuguese">Portuguese</option>
+				<!-- add event listener on button so that langauge chosen hides English assessmnet (becasue that's the default) and shows
+		new assessment for that langauge -->
+				<!-- hide based on class, unhide based on ID -->
+				</optgroup>
+			</select>
+			<section>
+				<label class="changeTo" for="toilet-select"> Quisieras aprender or enseñar esta idioma? </label>
+				<select class="width" name="teachOrLearn">
+					<option value="teach"> Enseñar</option>
+					<option value="learn"> Aprender</option>
+				</select>
+			</section>
+			<section class="englishQs">
+				<section class="width">
+					<label class="changeTo" for="toilet-select"> ¿Es el español tu primer idioma?</label>
+					<section class="b">
+						<select class="ur" name="firstLang">
+							<option value="0"> Sí</option>
+							<option value="2"> No </option>
+
+						</select>
+					</section>
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="dessert-select"> ¿Vives en un país donde se habla español? </label>
+					<section class=b>
+						<select class="ur" name="country">
+							<option value="5"> Sí, la mayoría de la gente aquí habla español</option>
+							<option value="4"> No, pero mi familia habla español</option>
+							<option value="2"> No </option>
+							<option value="4"> No, pero con subtítulos puedo entendor los programas en Español en la tele</option>
+
+						</select>
+					</section>
+
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="cartoon-select"> Una escala de 1 (excelente) a 5 (no tan excelente), ¿cuál cree que es su nivel de fluidez? </label>
+					<section class="b">
+						<select class="ur" name="scale">
+							<option value="5"> 1</option>
+							<option value="4"> 2 </option>
+							<option value="3"> 3 </option>
+							<option value="2"> 4 </option>
+							<option value="1"> 5 </option>
+
+						</select>
+					</section>
+				</section>
+				<section class="width">
+
+					<label class="changeTo" for="tragedy-select"> Completa esta oración: Nadine, __________ las ventanas, por favor. Hace demasiado calor aquí.</label>
+					<section class=b>
+						<select class="ur" name="teach">
+							<option value="1"> abra </option>
+							<option value="5"> abre</option>
+							<option value="1"> abrió </option>
+							<option value="1"> abrirá</option>
+
+
+						</select>
+					</section>
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="bird-select"> Completa la siguiente oración: Los pasatiempos de Eli incluyen trotar, nadar y __________.</label>
+					<section class=b>
+						<select class="ur2" name="book">
+							<option value="1"> subiendo monatañas</option>
+							<option value="2"> subir montanas</option>
+							<option value="5"> subir montañas</option>
+						</select>
+					</section>
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="rapper-select"> Completa la siguiente oración: ¿Quién es ____________, Marina o Sachiko?</label>
+					<section class="b">
+						<select class="ur2" name="help">
+							<option value="4"> ¿Quién es más alto, Marina o Sachiko?</option>
+							<option value="4"> ¿Quién es más alta, Marina o Sachiko?</option>
+							<option value="1"> ¿Quién es alta Marina o Sachiko? </option>
+							<option value="5"> ¿Quién es la más alta, Marina o Sachiko?</option>
+						</select>
+					</section>
+
+				</section>
+
+			</section>
+			<section class="submit">
+				<button type="submit" id="cute" class="button primary"> Save</button>
+			</section>
+		</form>
+	</section>
+
+	<!-- // creole form ========================================= -->
+
+	<section id="creoleForm" class="hideMePlease major half3 assessment2">
+		<!-- prevent user from signing up for language already in profile  -->
+		<form class="languageForm boldMe" action="/addLanguage" method="post">
+			<label class="changeTo" for="toilet-select"> Chwazi lang ou ta renmen travay la </label>
+			<select class="width widthSelect" name="language">
+				<option class="english"> English </option>
+				<option class="french">French</option>
+				<option class="spanish">Spanish</option>
+				<option class="haitian"> Haitian Creole </option>
+				<option class="portuguese">Portuguese</option>
+				<!-- add event listener on button so that langauge chosen hides English assessmnet (becasue that's the default) and shows
+			new assessment for that langauge -->
+				<!-- hide based on class, unhide based on ID -->
+				</optgroup>
+			</select>
+			<section>
+				<label class="changeTo" for="toilet-select"> Èske ou ta renmen anseye oswa aprann lang sa a?</label>
+				<select class="width" name="teachOrLearn">
+					<option value="teach"> anseye</option>
+					<option value="learn"> aprann</option>
+				</select>
+			</section>
+			<section class="englishQs">
+				<section class="width">
+					<label class="changeTo" for="toilet-select"> Èske kreyòl premye lang ou an? </label>
+					<section class="b">
+						<select class="ur" name="firstLang">
+							<option value="0"> Oui</option>
+							<option value="2"> Non </option>
+
+						</select>
+					</section>
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="dessert-select"> Èske w ap viv nan yon peyi kote yo pale kreyòl? </label>
+					<section class=b>
+						<select class="ur" name="country">
+							<option value="5"> Wi, pifò moun isit la pale kreyòl </option>
+							<option value="4"> Non, men fanmi mwen pale kreyòl </option>
+							<option value="2"> Non </option>
+							<option value="4"> Non, men mwen gade pwogram an kreyòl san subtitles</option>
+
+						</select>
+					</section>
+
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="cartoon-select"> Youn nan yon echèl soti nan 1 (gwo) a 5 (pa tèlman gwo), ki sa ou kwè nivo ou nan fasilite yo dwe? </label>
+					<section class="b">
+						<select class="ur" name="scale">
+							<option value="5"> 1</option>
+							<option value="4"> 2 </option>
+							<option value="3"> 3 </option>
+							<option value="2"> 4 </option>
+							<option value="1"> 5 </option>
+
+						</select>
+					</section>
+				</section>
+				<section class="width">
+
+					<label class="changeTo" for="tragedy-select"> Ranpli fraz sa a: Alicia, __________ fenèt yo tanpri. Li twò cho isit la.</label>
+					<section class=b>
+						<select class="ur" name="teach">
+							<option value="1"> ouvé </option>
+							<option value="5"> louvri</option>
+							<option value="1"> femen</option>
+							<option value="1"> ap louvri</option>
+
+
+						</select>
+					</section>
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="bird-select"> Ranpli fraz sa a: pastan Eli a gen ladan djògin, naje, ak __________.</label>
+					<section class=b>
+						<select class="ur2" name="book">
+							<option value="5">monte mòn </option>
+							<option value="2"> monte </option>
+							<option value="1"> eskalad mon </option>
+						</select>
+					</section>
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="rapper-select"> Ranpli fraz sa a: Ki moun ki ____________, Marina oswa Sachiko?</label>
+					<section class="b">
+						<select class="ur2" name="help">
+							<option value="4"> pi wo</option>
+							<option value="1"> wo </option>
+
+						</select>
+					</section>
+
+				</section>
+
+			</section>
+			<section class="submit">
+				<button type="submit" id="cute" class="button primary">Ajoute</button>
+			</section>
+		</form>
+
+	</section>
+	<!-- /// portuguese form ================================ -->
+	<section id="portugueseForm" class="hideMePlease major half3 assessment2">
+		<!-- prevent user from signing up for language already in profile  -->
+		<form class="languageForm boldMe" action="/addLanguage" method="post">
+			<label class="changeTo" for="toilet-select"> Selecione o idioma com o qual gostaria de trabalhar </label>
+			<select class="width widthSelect" name="language">
+				<option class="english"> English </option>
+				<option class="french">French</option>
+				<option class="spanish">Spanish</option>
+				<option class="haitian"> Haitian Creole </option>
+				<option class="portuguese">Portuguese</option>
+				<!-- add event listener on button so that langauge chosen hides English assessmnet (becasue that's the default) and shows
+				new assessment for that langauge -->
+				<!-- hide based on class, unhide based on ID -->
+				</optgroup>
+			</select>
+			<section>
+				<label class="changeTo" for="toilet-select"> Você gostaria de ensinar ou aprender este idioma?</label>
+				<select class="width" name="teachOrLearn">
+					<option value="teach"> Ensinar </option>
+					<option value="learn"> Aprender</option>
+				</select>
+			</section>
+			<section class="englishQs">
+				<section class="width">
+					<label class="changeTo" for="toilet-select"> Português é sua primeira língua? </label>
+					<section class="b">
+						<select class="ur" name="firstLang">
+							<option value="0"> Yes</option>
+							<option value="2"> No </option>
+
+						</select>
+					</section>
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="dessert-select"> Qual objeto pertence ao banheiro? </label>
+					<section class=b>
+						<select class="ur" name="country">
+							<option value="5"> papel higiênico </option>
+							<option value="4"> carro </option>
+							<option value="2"> computador </option>
+							<option value="4"> farinha de trigo</option>
+
+						</select>
+					</section>
+
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="cartoon-select"> Um uma escala de 1 (ótimo) a 5 (não tão bom), qual você acredita ser o seu nível de fluência?</label>
+					<section class="b">
+						<select class="ur" name="scale">
+							<option value="5"> 1</option>
+							<option value="4"> 2 </option>
+							<option value="3"> 3 </option>
+							<option value="2"> 4 </option>
+							<option value="1"> 5 </option>
+
+						</select>
+					</section>
+				</section>
+				<section class="width">
+
+					<label class="changeTo" for="tragedy-select"> Complete a seguinte frase: Alicia, __________ as janelas, por favor. É muito quente aqui.</label>
+					<section class=b>
+						<select class="ur" name="teach">
+							<option value="5"> Alicia, feche a janela por favor </option>
+							<option value="1"> Alicia, fecho a janela por favor</option>
+							<option value="1"> Alicia, fechou a janela </option>
+							<option value="1"> Alicia,fecharam a janela</option>
+
+
+						</select>
+					</section>
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="bird-select"> Complete a seguinte frase: Os hobbies de Eli incluem corrida, natação e __________.</label>
+					<section class=b>
+						<select class="ur2" name="book">
+							<option value="1"> cozinhando </option>
+							<option value="1"> escale montanhas </option>
+							<option value="2"> escalar montanhas </option>
+							<option value="5"> alpinismo</option>
+						</select>
+					</section>
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="rapper-select"> Complete a seguinte frase: Quem é ____________, Marina ou Sachiko?</label>
+					<section class="b">
+						<select class="ur2" name="help">
+							<option value="4"> é mais alto,</option>
+							<option value="4"> mais alto</option>
+							<option value="1"> alto </option>
+							<option value="5"> o mais alto</option>
+						</select>
+					</section>
+
+				</section>
+
+			</section>
+			<section class="submit">
+				<button type="submit" id="cute" class="button primary"> Save </button>
+			</section>
+		</form>
 	</section>
 	<!-- <h3> Fluency Assesment </h3> -->
+	<!-- // french form ============ -->
+	<section id="frenchForm" class="hideMePlease major half3 assessment2">
+		<!-- prevent user from signing up for language already in profile  -->
+		<form class="languageForm boldMe" action="/addLanguage" method="post">
+			<label class="changeTo" for="toilet-select"> Sélectionnez la langue avec laquelle vous souhaitez travailler </label>
+			<select class="width widthSelect" name="language">
+				<option class="english"> English </option>
+				<option class="french">French</option>
+				<option class="spanish">Spanish</option>
+				<option class="haitian"> Haitian Creole </option>
+				<option class="portuguese">Portuguese</option>
+				<!-- add event listener on button so that langauge chosen hides English assessmnet (becasue that's the default) and shows
+	new assessment for that langauge -->
+				<!-- hide based on class, unhide based on ID -->
+				</optgroup>
+			</select>
+			<section>
+				<label class="changeTo" for="toilet-select"> Souhaitez-vous enseigner ou apprendre cette langue?</label>
+				<select class="width" name="teachOrLearn">
+					<option value="teach"> enseigner </option>
+					<option value="learn"> apprendre</option>
+				</select>
+			</section>
+			<section class="englishQs">
+				<section class="width">
+					<label class="changeTo" for="toilet-select"> le français est-il votre langue maternelle? </label>
+					<section class="b">
+						<select class="ur" name="firstLang">
+							<option value="0"> Oui</option>
+							<option value="2"> Non </option>
 
+						</select>
+					</section>
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="dessert-select"> Quel objet appartient à la salle de bain?</label>
+					<section class=b>
+						<select class="ur" name="country">
+							<option value="5"> papier toilette </option>
+							<option value="2"> voiture </option>
+							<option value="2"> l'ordinateur </option>
+							<option value="2"> farine</option>
+
+						</select>
+					</section>
+
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="cartoon-select"> Sur une échelle de 1 (excellent) à 5 (pas si bon), quel est selon vous votre niveau de fluidité?</label>
+					<section class="b">
+						<select class="ur" name="scale">
+							<option value="5"> 1</option>
+							<option value="4"> 2 </option>
+							<option value="3"> 3 </option>
+							<option value="2"> 4 </option>
+							<option value="1"> 5 </option>
+
+						</select>
+					</section>
+				</section>
+				<section class="width">
+
+					<label class="changeTo" for="tragedy-select"> Complétez la phrase suivante: Alicia, __________ les fenêtres, s'il vous plaît. Il fait trés chaud ici.</label>
+					<section class=b>
+						<select class="ur" name="teach">
+							<option value="5"> Alicia, ferme la fenêtre s'il te plait</option>
+							<option value="1"> Alicia, s'il te plait ferme la fenêtre</option>
+							<option value="1"> Alicia, a fermé la fenêtre</option>
+							<option value="1"> Alicia, ils ont fermé la fenêtre</option>
+
+
+						</select>
+					</section>
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="bird-select"> Complétez la phrase suivante: Les passe-temps d'Eli incluent la course, la natation et __________.</label>
+					<section class=b>
+						<select class="ur2" name="book">
+							<option value="1"> cuisine </option>
+							<option value="1"> escalader des montagnes </option>
+							<option value="2"> grimpe des montagnes </option>
+							<option value="5"> alpinisme </option>
+						</select>
+					</section>
+
+				</section>
+
+				<section class="width">
+					<label class="changeTo" for="rapper-select"> Complétez la phrase suivante: Qui est ____________, Marina ou Sachiko?</label>
+					<section class="b">
+						<select class="ur2" name="help">
+							<option value="4"> C'est plus haut,</option>
+							<option value="4">plus haute</option>
+							<option value="1">haute </option>
+							<option value="5"> le plus grand</option>
+						</select>
+					</section>
+
+				</section>
+
+			</section>
+			<section class="submit">
+				<button type="submit" id="cute" class="button primary"> Save </button>
+			</section>
+		</form>
+	</section>
 	<div class="twoSidesRight">
 		<!-- // update mongo for languages thatonly get updated -->
 
@@ -166,7 +626,7 @@ new assessment for that langauge -->
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script src="main.js"></script>
+	<script src="assessment.js"></script>
 
 </body>
 

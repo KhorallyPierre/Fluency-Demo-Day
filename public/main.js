@@ -22,11 +22,3 @@ Array.from(chat).forEach(function(element) {
 
   })
 });
-// remove english form not working
-// function chooseLang(){
-//   let option = document.querySelector('.french')
-//     document.querySelector('.englishQs').style.display = "none"
-//
-// }
-//
-//   document.querySelector('.french').addEventListener('click', chooseLang)
