@@ -11,7 +11,7 @@ module.exports = function(app, passport, db) {
 
   // assessment Page gets rendered
 
-  // middlewate
+  // middleware
   app.get('/assessment', isLoggedIn, servicesNeeded, function(req, res) {
     res.render('assessment.ejs', {
       user: req.user,
@@ -50,14 +50,14 @@ module.exports = function(app, passport, db) {
   app.get('/checkout', isLoggedIn,  function(req, res) {
     res.render('checkout.ejs', {
       user: req.user,
-      userProfile: req.userProfile,
+      userProfile: req.userProfile
     })
   })
 
   app.get('/sessionEnded', isLoggedIn, function(req, res) {
     res.render('sessionEnded.ejs', {
       user: req.user,
-      userProfile: req.userProfile,
+      userProfile: req.userProfile
 
     })
   })
@@ -111,11 +111,7 @@ module.exports = function(app, passport, db) {
       });
   })
 
-
-
-
-  // next is a value and a function that tells it when its done
-  // middleware created
+  // middleware created - talking point
   function servicesNeeded(req, res, next) {
     db.collection('userProfile').findOne({
       email: req.user.local.email
@@ -124,6 +120,7 @@ module.exports = function(app, passport, db) {
       let languages = userProfile.languages.filter(element => element.teachOrLearn ==
         "teach").map(element => element.language)
       // console.log('languages I teach', languages)
+      // if languages arent initialized, it's done right here
       if (!languages) {
         languages = []
       }
@@ -148,8 +145,8 @@ module.exports = function(app, passport, db) {
         if (!requests) {
           requests = []
         }
-        // pick one of the requests
-        // needs to be random later on
+        // pick one of the requests first come first serve
+        // queue FIFO
         if (requests.length != 0) {
           found = requests[0]
         }
@@ -157,7 +154,7 @@ module.exports = function(app, passport, db) {
         req.userProfile = userProfile
         req.requests = requests
         req.found = found
-        // console.log('we found a teacher', found)
+        // next is a value and a function that tells it when its done
         next()
       })
     });
@@ -166,12 +163,8 @@ module.exports = function(app, passport, db) {
 
   // normal routes ===============================================================
 
-  // show the home page (will also have our login links)
-
-
   // PROFILE SECTION =========================
-  //     Create (POST) - Make match between users
-  // url to access this information localhost:1000/pair/Spanish
+
   // create
   app.post('/profile', isLoggedIn, function(req, res) {
     if (req.files) {
@@ -207,7 +200,6 @@ module.exports = function(app, passport, db) {
     }
   })
   // who speaks desired langugage gets chosen /read
-  // get is reading
   app.get('/pair/:language', /*isLoggedIn,*/ function(req, res) {
     // console.log('language', req.params.language)
     db.collection('userProfile').find({
@@ -218,7 +210,7 @@ module.exports = function(app, passport, db) {
         }
       }
     }).toArray((err, result) => {
-      // console.log('paired choices', result)
+
       const randomPair = Math.floor(Math.random() * result.length)
       if (err) return console.log(err)
       res.send(result[randomPair])
@@ -230,7 +222,6 @@ module.exports = function(app, passport, db) {
     db.collection('requests').findOneAndUpdate({
         // app.get needs to have the same data type as findone and Update filter
         _id: ObjectID(req.params.roomId),
-        // if this doesnt work, convert string to object ID
       }, {
         $set: {
           status: "complete"
@@ -246,9 +237,8 @@ module.exports = function(app, passport, db) {
       })
   })
 
-  // THIS PUTS LANGUAGE ON USER PROFILE
+  //  PUTS LANGUAGE ON USER PROFILE
   app.post('/addLanguage', isLoggedIn, function(req, res) {
-    // console.log('addLanguage', req.body)
     const fluency = parseInt(req.body.country) + parseInt(req.body.teach) + parseInt(req.body.help)
     const languageObject = {
       language: req.body.language,
@@ -332,18 +322,11 @@ module.exports = function(app, passport, db) {
   });
 
 
-
-  // then figure out combining matching of two people (student and teacher ) and putting them in the same room
-  // web rtc implementation
-  // we need requests accepted by a teacher to lead to video Page
-
   // reading paired match
-  // add event listeners so that when button is clicked, teacher is redirected to video chat room
-  // student recieves an alert " A teacher is waiting for you. Go to your profile to accept"
   // on student profile page - they click and meet teacher in chat room
 
   app.get('/pair/:language', /*isLoggedIn,*/ function(req, res) {
-    // console.log('language', req.params.language)
+
     db.collection('userProfile').find({
       languages: {
         $elemMatch: {
@@ -352,7 +335,7 @@ module.exports = function(app, passport, db) {
         }
       }
     }).toArray((err, result) => {
-      // console.log('paired choices', result)
+
       const randomPair = Math.floor(Math.random() * result.length)
       if (err) return console.log(err)
       res.send(result[randomPair])

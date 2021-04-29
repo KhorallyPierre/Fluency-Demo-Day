@@ -47,23 +47,14 @@ app.use(upload())
 //videochatting code
 app.set('view engine', 'ejs'); // set up ejs for templating
 // how to connect routes without breaking
-// wiating room
-// app.get('/waiting', (req, res) => {
-//   res.redirect(`/waiting/${uuidV4()}`)
-// })
-// chat room
-// app.get('/videoChat/:room', (req, res) => {
-//   res.render('room', {
-//     roomId: req.params.room
-//   })
-// })
+
 // establish connection using roomID and
 // removing socket io because we might not need it
 io.on('connection', socket => {
   socket.on('join-room', (roomId, userId) => {
     socket.join(roomId)
     socket.to(roomId).broadcast.emit('user-connected', userId)
-
+// tells sockets connected to roomID to disconnet that specific user
     socket.on('disconnect', () => {
       socket.to(roomId).broadcast.emit('user-disconnected', userId)
     })
