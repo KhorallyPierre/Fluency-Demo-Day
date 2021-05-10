@@ -80,6 +80,7 @@ function countDown() {
     }
 
     timeLeftDisplay.innerText = "Time Left: " + timeLeft
+    // timeLeftDisplay.innerText = `time left: ${timeLeft/60}: ${timeleft % 60} seconds`
     timeLeft -= 1
 
   }, 2000)

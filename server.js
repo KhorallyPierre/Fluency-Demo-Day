@@ -21,7 +21,9 @@ var configDB = require('./config/database.js');
 
 var db
 //video chatting variables
+// http server (http library dependency)
 const server = require('http').Server(app)
+// takes http object as an argument
 const io = require('socket.io')(server)
 const {  v4: uuidV4} = require('uuid')
 
@@ -50,7 +52,9 @@ app.set('view engine', 'ejs'); // set up ejs for templating
 
 // establish connection using roomID and
 // removing socket io because we might not need it
+// firt connection
 io.on('connection', socket => {
+  /// when connection is made and can join room to chat
   socket.on('join-room', (roomId, userId) => {
     socket.join(roomId)
     socket.to(roomId).broadcast.emit('user-connected', userId)

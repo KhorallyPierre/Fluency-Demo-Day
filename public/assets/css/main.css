@@ -35,6 +35,14 @@ footer, header, hgroup, menu, nav, section {
   margin: 200px;
 }
 
+#content {
+  margin-left: -89px;
+}
+
+.aboutMe {
+  text-align: center;
+}
+
 .mainForm{
   display: flex;
   width: 57vw;

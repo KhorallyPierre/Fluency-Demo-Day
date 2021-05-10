@@ -119,23 +119,18 @@ module.exports = function(app, passport, db) {
       if (err) return console.log(err)
       let languages = userProfile.languages.filter(element => element.teachOrLearn ==
         "teach").map(element => element.language)
-      // console.log('languages I teach', languages)
-      // if languages arent initialized, it's done right here
+
       if (!languages) {
         languages = []
       }
-      // inside find() we need a filter to find a teacher
-      // get an array of all the languages user teaches
-      // use that array with mongo DB $in to find the requests
-      //of students who want to lean that langauge
-      // finds students
-      // pick first one and match wit that student
+
       db.collection('requests').find({
         status: "waiting",
 
         language: {
           $in: languages
         },
+        // filters out self
         fromUser: {
           $ne: userProfile.email
         }
