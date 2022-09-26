@@ -1,15 +1,17 @@
 module.exports = function(app, passport, db) {
   const ObjectID = require('mongodb').ObjectID;
-  // video chatroom
+  // route for room that has id : :room is the uuID,which is used to connect two users 
   app.get('/videoChat/:room', (req, res) => {
     console.log('videochat', req.params.room)
     res.render('videoRoom.ejs', {
+      // taking uuID from the route / address bar and setting it to variable room id in the ejs to bse utilized 
+      // whenever needed
       roomId: req.params.room
     })
   })
 
 
-  // assessment Page gets rendered
+  // form page assessment Page gets rendered
 
   // middleware
   app.get('/assessment', isLoggedIn, servicesNeeded, function(req, res) {
@@ -23,22 +25,22 @@ module.exports = function(app, passport, db) {
 
 
   // assessment Page gets rendered
-  app.get('/right-sidebar', isLoggedIn, servicesNeeded, function(req, res) {
-    res.render('right-sidebar.ejs', {
+  app.get('/app-example', isLoggedIn, servicesNeeded, function(req, res) {
+    res.render('app-example.ejs', {
       user: req.user,
       // userProfile: req.userProfile
       areServicesNeeded: Boolean(req.found)
     })
   })
-
-  app.get('/left-sidebar', isLoggedIn, servicesNeeded, function(req, res) {
-    res.render('left-sidebar.ejs', {
+// /about is the route to get to about page (change to about later)
+  app.get('/about', isLoggedIn, servicesNeeded, function(req, res) {
+    res.render('about.ejs', {
       user: req.user,
       // userProfile: req.userProfile
       areServicesNeeded: Boolean(req.found)
     })
   })
-
+// app.get is a request to page to render a certain page 
   app.get('/premium', isLoggedIn, servicesNeeded, function(req, res) {
     res.render('premium.ejs', {
       user: req.user,
