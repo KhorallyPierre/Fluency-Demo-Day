@@ -33,6 +33,7 @@ footer, header, hgroup, menu, nav, section {
 
 #containerCheck {
   margin: 200px;
+  background-color: rgba(2, 2, 2);
 }
 
 #content {
@@ -2675,7 +2676,7 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 select,
-/* textarea {
+textarea {
   -moz-appearance: none;
   -webkit-appearance: none;
   -ms-appearance: none;
@@ -2693,7 +2694,7 @@ select,
   padding: 0 1em;
   text-decoration: none;
   width: 100%;
-} */
+}
 
 input[type="text"]:invalid,
 input[type="password"]:invalid,
@@ -2734,13 +2735,13 @@ select::-ms-expand {
   display: none;
 }
 
-/* input[type="text"],
+input[type="text"],
 input[type="password"],
 input[type="email"],
 select {
   height: 3em;
   width: 550px;
-} */
+}
 
 textarea {
   padding: 0.75em 1em;
@@ -3359,7 +3360,13 @@ input[type="button"].large,
 input[type="submit"].primary,
 input[type="reset"].primary,
 input[type="button"].primary,
-.primary.button {
+
+.button.primary {
+  background-color: #e44c65;
+  box-shadow: none;
+  color: #ffffff !important;
+}
+/* .primary.button {
   width: 488px;
   height: 79px;
   background: white;
@@ -3393,7 +3400,7 @@ input[type="button"].primary,
   cursor: pointer;
   box-shadow: 0 1px 2px rgba(0,0,0,0.15);
   transition: box-shadow 0.2s ease-in-out;
-}
+} */
 input[type="submit"].primary:hover,
 input[type="reset"].primary:hover,
 input[type="button"].primary:hover,
@@ -3922,9 +3929,9 @@ bottom{
   font-weight: 900;
 }
 
-.navBar {
+/* .navBar {
   height: 300px;
-}
+} */
 
 #header nav ul li a.button, #header nav ul li span.button {
   height: 2em;
