@@ -2758,9 +2758,10 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 select {
-  height: 6em;
+  height: 58px;
   width: 480px;
   border-radius: 9px;
+  color:white;
   border: 1px solid #FFFFFF;
 }
 
