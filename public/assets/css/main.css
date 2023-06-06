@@ -93,6 +93,24 @@ footer, header, hgroup, menu, nav, section {
   background-color: #ccc;
 }
 
+.leftSidebarButton {
+  width: 388px;
+  height: 79px;
+  background: linear-gradient(90.99deg, rgba(236, 226, 228, 0.9) -20.91%, rgb(240, 135, 135) 169.3%);
+  border: 0px;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.1em;
+  color: white;
+  text-align: center;
+  margin: 55px 20px 0px 20px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: box-shadow 0.2s ease-in-out;
+  padding: 20px;
+}
 #emotion {
   display: block;
   cursor: pointer;
@@ -346,6 +364,7 @@ input, select, textarea {
 /* Basic */
 html {
   box-sizing: border-box;
+  height: 1006px;
 }
 
 *, *:before, *:after {
@@ -2739,8 +2758,10 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 select {
-  height: 3em;
-  width: 550px;
+  height: 6em;
+  width: 480px;
+  border-radius: 9px;
+  border: 1px solid #FFFFFF;
 }
 
 textarea {
@@ -3362,7 +3383,7 @@ input[type="reset"].primary,
 input[type="button"].primary,
 
 .button.primary {
-  background-color: #e44c65;
+  background: linear-gradient(90.99deg, rgba(198, 77, 100, 0.9) -20.91%, rgb(165, 71, 71, 0.5) 169.3%);
   box-shadow: none;
   color: #ffffff !important;
 }
@@ -3889,7 +3910,7 @@ body.landing .dropotron.level-0 {
 #header nav {
   position: absolute;
   right: 1em;
-  top: -35px;
+  top: 1px;
 }
 
 #header nav ul {
@@ -4141,7 +4162,7 @@ body.is-touch #banner {
 
   /* Wrapper */
   .wrapper {
-    padding: 4.5em 0 2.5em 0;
+    padding: 2.5em 0 2.5em 0;
   }
 
   /* Dropotron */

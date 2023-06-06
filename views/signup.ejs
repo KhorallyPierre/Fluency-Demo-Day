@@ -12,56 +12,66 @@
 <body id="loginBody">
     <section>
         <header>
-            <h1 id="logo"><a href="/"> <img class="love"src="images/pic01.jpg">  </a> Sign Up</h1>
+            <h1 id="logo"><a href="/"> <img class="love" src="images/pic01.jpg"> </a> Sign Up</h1>
         </header>
-    <!-- form  -->
-      </form>
+        <!-- form  -->
+        </form>
         <div class="card">
             <div class="container">
-              <h1> Welcome to Fluency</h1>
-              <!-- ejs -->
-              <% if (message.length> 0) { %>
-                <div class="alert alert-danger">
-                    <%= message %>
-                </div>
-                <% } %>
-              <!-- sign up form -->
-              <form action="/signup" method="post">
-                <ul class="email-input-list">
-                    <li class="label">Username</li>
-                    <li><input required type="text" class="form-control" name="username"></li>
-                </ul>
-                <ul class="email-input-list">
-                    <li class="label">Email</li>
-                    <li><input class="form-control" placeholder="name@email.com" name="email" type="text"></li>
-                </ul>
-                <ul>
-                    <li class="label">Password</li>
-                    <li><input class="form-control" placeholder="*******" name="password" type="password"></li>
-       
-                </ul>
-                
-                <button required type='submit' class="button primary btn btn-warning btn-lg">Sign Up</button>
+                <h1> Welcome to Fluency</h1>
+                <!-- ejs -->
+                <% if (message.length> 0) { %>
+                    <div class="alert alert-danger">
+                        <%= message %>
+                    </div>
+                    <% } %>
+                        <!-- sign up form -->
+                        <form action="/signup" method="post">
+                            <ul class="email-input-list">
+                                <li class="label">Username</li>
+                                <li><input required type="text" class="form-control" placeholder="LanguageLearner28" name="username"></li>
+                            </ul>
+                            <ul class="email-input-list">
+                                <li class="label">Email</li>
+                                <li><input class="form-control" placeholder="name@email.com" name="email" type="text">
+                                </li>
+                            </ul>
+                            <ul>
+                                <li class="label">Password</li>
+                                <li><input class="form-control" placeholder="*******" name="password" type="password">
+                                </li>
 
-                <!-- <button required type="submit" class=" button primary btn btn-warning btn-lg">Sign Up</button> -->
-            <span class="account">Already Have an Account? <a href="/login">Login</a>
-                Or return to <a href="/">Home Page</a></span> 
-            </form>
-           
+                            </ul>
+                            <ul>
+                                <li> <button required type='submit'
+                                        class="button primary btn btn-warning btn-lg login-btn">Sign
+                                        Up</button></li>
+                            </ul>
+                            <br />
+                            <br /> <br />
+                            <br />
+
+                            <!-- <button required type="submit" class=" button primary btn btn-warning btn-lg">Sign Up</button> -->
+
+                        </form>
+                        <br />
+                        <br />
+                        <span class="account">Already Have an Account? <a href="/login">Login</a>
+                            Or return to <a href="/">Home Page</a></span>
             </div>
         </div>
     </section>
     <!-- <div class="container"> -->
-        <!-- <div class="col-sm-6 col-sm-offset-3">
+    <!-- <div class="col-sm-6 col-sm-offset-3">
             <h1 class="signUp"><span>Sign Up</span> </h1>
 
            
 
                     LOGIN FORM -->
-                   
-                   
 
-        <!-- </div> --> 
+
+
+    <!-- </div> -->
     <!-- </div> -->
 </body>
 
